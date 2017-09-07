@@ -7,6 +7,8 @@ class App extends Component {
       <div>
         App Container
       </div>
-    }
+    };
   }
 }
+
+export default App;
