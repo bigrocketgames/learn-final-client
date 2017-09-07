@@ -3,11 +3,11 @@ import './App.css'
 
 class App extends Component {
   render() {
-    return {
+    return(
       <div>
-        App Container
+        App container
       </div>
-    };
+    );
   }
 }
 
