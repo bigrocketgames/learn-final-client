@@ -23,8 +23,9 @@ export const setCurrentUser = user => {
 
 export const signup = (userDetails, router) => {
   return dispatch => {
+    debugger
     dispatch(authenticationRequest())
-    return fetch('${API_URL}/users', {
+    return fetch(`${API_URL}/users`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -37,7 +38,7 @@ export const signup = (userDetails, router) => {
         localStorage.setItem('team.schedule.token', body.token);
         dispatch(setCurrentUser(body.user));
         dispatch(reset('signup'));
-        router.history.replace('/home');
+        // router.history.replace('/home');
       })
     .catch(err => {
       throw new SubmissionError(err);
