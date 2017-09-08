@@ -6,9 +6,8 @@ import {
   NavLink
 } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
-import './App.css'
-import Signup from './views/signup';
-import Home from './views/home';
+import Signup from '../views/signup';
+import Home from '../views/home';
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
