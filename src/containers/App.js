@@ -12,14 +12,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://team-schedules.herokuapp.com/api/v1/sports')
+    fetch('https://team-schedules-api.herokuapp.com/api/v1/sports')
       .then(response => response.json())
       .then(sports => this.setState({ sports }))
   }
 
 
   render() {
-
     console.log(this.state)
     return(
       <div className="App">
