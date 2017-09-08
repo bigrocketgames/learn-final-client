@@ -23,7 +23,6 @@ export const setCurrentUser = user => {
 
 export const signup = (userDetails, router) => {
   return dispatch => {
-    debugger
     dispatch(authenticationRequest())
     return fetch(`${API_URL}/users`, {
       method: 'POST',
