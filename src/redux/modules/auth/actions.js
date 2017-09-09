@@ -44,3 +44,26 @@ export const signup = (userDetails, router) => {
     })
   }
 }
+
+export const login = (userDetails, router) => {
+  return dispatch => {
+    dispatch(authenticationRequest())
+    return fetch(`${API_URL}/auth`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ user: userDetails })
+    })
+      .then(response => response.json())
+      .then(body => {
+        localStorage.setItem('team.schedule.token', body.token);
+        dispatch(setCurrentUser(body.user));
+        dispatch(reset('login'));
+      })
+    .catch(err => {
+      throw new SubmissionError(err);
+    })
+  }
+}
