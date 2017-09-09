@@ -8,7 +8,7 @@ const handleSignUp = (values, dispatch) => {
 }
 
 let SignupForm = props => {
-  const { handleSubmit, reset } = props
+  const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit(handleSignUp)}>
       <div>

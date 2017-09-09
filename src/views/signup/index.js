@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-import { signup } from '../../redux/modules/auth/actions';
 import SignupForm from './SignupForm';
 
 class Signup extends Component {
