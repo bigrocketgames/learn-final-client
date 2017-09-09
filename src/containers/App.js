@@ -8,6 +8,7 @@ import {
 import { StyleSheet, css } from 'aphrodite';
 import Signup from '../views/signup';
 import Home from '../views/home';
+import Login from '../views/login';
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
@@ -56,12 +57,14 @@ class App extends Component {
             <div className={css(styles.navbar)}>
               <NavLink className={css(styles.navlink)} to="/">Home</NavLink>
               <NavLink className={css(styles.navlink)} to="/signup">Signup</NavLink>
+              <NavLink className={css(styles.navlink)} to="/login">Login</NavLink>
             </div>
           </div>
 
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
             <Route component={NotFound} />
           </Switch>
         </div>
