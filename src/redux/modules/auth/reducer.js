@@ -5,7 +5,7 @@ const initialState = {
   currentUser: {}
 }
 
-export default (state = initialState, action) => {
+const auth = (state = initialState, action) => {
   switch(action.type) {
     
     case 'AUTHENTICATION_REQUEST':
@@ -25,3 +25,5 @@ export default (state = initialState, action) => {
       return state;
   }
 }
+
+export default auth;
