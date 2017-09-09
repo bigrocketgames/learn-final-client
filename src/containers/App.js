@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
 
 const NotFound = () => <div>NotFound</div>
 
+const isAdmin = localStorage.getItem('team.schedule.admin');
+
 class App extends Component {
 
   // constructor(props){
@@ -48,6 +50,8 @@ class App extends Component {
   //     .then(sports => this.setState({ sports }))
   // }
 
+
+
   render() {
     console.log(this.state)
     return(
@@ -58,6 +62,11 @@ class App extends Component {
               <NavLink className={css(styles.navlink)} to="/">Home</NavLink>
               <NavLink className={css(styles.navlink)} to="/signup">Signup</NavLink>
               <NavLink className={css(styles.navlink)} to="/login">Login</NavLink>
+              if (serializedState !== null) {
+                <NavLink className={css(styles.navlink)} to="/">Fix This</NavLink>
+              } else {
+
+              }
             </div>
           </div>
 
