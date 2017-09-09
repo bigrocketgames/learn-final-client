@@ -35,6 +35,9 @@ export const signup = (userDetails, router) => {
       .then(response => response.json())
       .then(body => {
         localStorage.setItem('team.schedule.token', body.token);
+        if (body.user.admin === true) {
+          localStorage.setItem('team.schedule.user_role', "admin")
+        }
         dispatch(setCurrentUser(body.user));
         dispatch(reset('signup'));
         // router.history.replace('/home');
@@ -59,6 +62,10 @@ export const login = (userDetails, router) => {
       .then(response => response.json())
       .then(body => {
         localStorage.setItem('team.schedule.token', body.token);
+        debugger
+        if (body.user.admin === true) {
+          localStorage.setItem('team.schedule.user_role', "admin")
+        }
         dispatch(setCurrentUser(body.user));
         dispatch(reset('login'));
       })
@@ -66,4 +73,8 @@ export const login = (userDetails, router) => {
       throw new SubmissionError(err);
     })
   }
+}
+
+export const logout = () => {
+  //  need to setup logout route on backend and front end to clear tokens and all localStorage
 }
