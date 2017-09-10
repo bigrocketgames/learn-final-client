@@ -5,10 +5,13 @@ import {
   Switch,
   NavLink
 } from 'react-router-dom';
+import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
 import { StyleSheet, css } from 'aphrodite';
 import Signup from '../views/signup';
 import Home from '../views/home';
 import Login from '../views/login';
+
+
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
@@ -32,7 +35,16 @@ const styles = StyleSheet.create({
 
 const NotFound = () => <div>NotFound</div>
 
-const isAdmin = localStorage.getItem('team.schedule.admin');
+function isAdmin() {
+  if (localStorage.getItem('team.schedule.user_role') === "admin") {
+    return true;
+  }
+  return false;
+}
+
+function isLoggedin(state) {
+  debugger
+}
 
 class App extends Component {
 
@@ -53,22 +65,31 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state)
+    let adminLink = null;
+    if (isAdmin() === true) {
+      adminLink = <NavItem eventKey={5} href="/">Admin Link</NavItem>;
+    }
     return(
       <Router>
         <div className="App">
-          <div className="navbar">
-            <div className={css(styles.navbar)}>
-              <NavLink className={css(styles.navlink)} to="/">Home</NavLink>
-              <NavLink className={css(styles.navlink)} to="/signup">Signup</NavLink>
-              <NavLink className={css(styles.navlink)} to="/login">Login</NavLink>
-              if (serializedState !== null) {
-                <NavLink className={css(styles.navlink)} to="/">Fix This</NavLink>
-              } else {
+          <Navbar>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <a href="/">Team Schedules</a>
+              </Navbar.Brand>
+            </Navbar.Header>
+            <Nav>
+              <NavItem eventKey={1} href="/">Home</NavItem>
+              <NavDropdown eventKey={2} title="Sports" id="sports-nav-dropdown">
 
-              }
-            </div>
-          </div>
+              </NavDropdown>
+            </Nav>
+            <Nav pullRight>
+              <NavItem eventKey={3} href="/signup">Signup</NavItem>
+              <NavItem eventKey={4} href="/login">Login</NavItem>
+              {adminLink}
+            </Nav>
+          </Navbar>
 
           <Switch>
             <Route exact path="/" component={Home} />
