@@ -1,7 +1,9 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
+
 import { reducer as form } from 'redux-form';
 import auth from '../modules/auth/reducer';
+import sports from '../modules/sports/reducer';
 import { loadState, saveState } from './localStorage';
 
 const persistedState = loadState();
@@ -9,6 +11,7 @@ const persistedState = loadState();
 const reducers = combineReducers({
   form,
   auth,
+  sports
 })
 
 const middleware = [thunk]
