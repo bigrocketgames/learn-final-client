@@ -5,6 +5,8 @@ import {
   Switch
 } from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
+
+import Sports from './Sports';
 import Signup from '../views/signup';
 import Home from '../views/home';
 import Login from '../views/login';
@@ -31,7 +33,7 @@ class App extends Component {
     return(
       <Router>
         <div className="App">
-          <Navbar>
+          <Navbar staticTop>
             <Navbar.Header>
               <Navbar.Brand>
                 <a href="/">Team Schedules</a>
@@ -39,8 +41,8 @@ class App extends Component {
             </Navbar.Header>
             <Nav>
               <NavItem eventKey={1} href="/">Home</NavItem>
-              <NavDropdown eventKey={2} title="Sports" id="sports-nav-dropdown">
-
+              <NavDropdown eventKey={2} title="Sports" id="basic-nav-dropdown">
+              <Sports />
               </NavDropdown>
             </Nav>
             <Nav pullRight>
