@@ -10,6 +10,7 @@ import Sports from './Sports';
 import Signup from '../views/signup';
 import Home from '../views/home';
 import Login from '../views/login';
+import Admin from '../views/admin';
 
 const NotFound = () => <div>NotFound</div>
 
@@ -28,7 +29,7 @@ class App extends Component {
   render() {
     let adminLink = null;
     if (localStorage.getItem('team.schedule.user_role') === "admin") {
-      adminLink = <NavItem eventKey={5} href="/">Admin Link</NavItem>;
+      adminLink = <NavItem eventKey={5} href="/admin">Admin</NavItem>;
     }
     return(
       <Router>
@@ -56,6 +57,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/admin" component={Admin} />
             <Route component={NotFound} />
           </Switch>
         </div>
