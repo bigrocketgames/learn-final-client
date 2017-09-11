@@ -12,13 +12,15 @@ class Sports extends Component {
 
   render() {
     return (
-      {this.props.sports.map(sport => <SportCard key={sport.id} sport={sport} />)}
+      <div>
+        {this.props.sports.map(sport => <SportCard key={sport.id} sport={sport} />)}
+      </div>
     );
   }
 
 }
 
-const mapStateToProps = (State) => {
+const mapStateToProps = (state) => {
   return ({
     sports: state.sports
   })
