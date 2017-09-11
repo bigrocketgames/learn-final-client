@@ -1,4 +1,6 @@
+import React from 'react';
 import 'isomorphic-fetch';
+import { Redirect } from 'react-router';
 import { reset, SubmissionError } from 'redux-form';
 
 /* action creators */
@@ -62,7 +64,6 @@ export const login = (userDetails, router) => {
       .then(response => response.json())
       .then(body => {
         localStorage.setItem('team.schedule.token', body.token);
-        debugger
         if (body.user.admin === true) {
           localStorage.setItem('team.schedule.user_role', "admin")
         }
