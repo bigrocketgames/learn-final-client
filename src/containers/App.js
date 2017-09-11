@@ -2,71 +2,30 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  NavLink
+  Switch
 } from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
-import { StyleSheet, css } from 'aphrodite';
 import Signup from '../views/signup';
 import Home from '../views/home';
 import Login from '../views/login';
 
-
-
-// const API_URL = process.env.REACT_APP_API_URL;
-
-const styles = StyleSheet.create({
-  navbar: {
-    width: '100%',
-    background: '#18121e',
-    padding: '6px',
-  },
-
-  navlink: {
-    textDecoration: 'none',
-    padding: '6px',
-    color: 'white',
-    ':hover': {
-      background: '#fff',
-      color: '#18121e'
-    }
-  }
-})
-
 const NotFound = () => <div>NotFound</div>
 
-function isAdmin() {
-  if (localStorage.getItem('team.schedule.user_role') === "admin") {
-    return true;
-  }
-  return false;
-}
+// function isAdmin() {
+//   if (localStorage.getItem('team.schedule.user_role') === "admin") {
+//     return true;
+//   }
+//   return false;
+// }
 
 function isLoggedin(state) {
   debugger
 }
 
 class App extends Component {
-
-  // constructor(props){
-  //   super(props)
-
-  //   this.state = {
-  //     sports: []
-  //   }
-  // }
-
-  // componentDidMount() {
-  //   fetch(`${API_URL}/sports`)
-  //     .then(response => response.json())
-  //     .then(sports => this.setState({ sports }))
-  // }
-
-
-
   render() {
     let adminLink = null;
-    if (isAdmin() === true) {
+    if (localStorage.getItem('team.schedule.user_role') === "admin") {
       adminLink = <NavItem eventKey={5} href="/">Admin Link</NavItem>;
     }
     return(
