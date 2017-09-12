@@ -37,9 +37,7 @@ export const signup = (userDetails, router) => {
       .then(response => response.json())
       .then(body => {
         localStorage.setItem('team.schedule.token', body.token);
-        if (body.user.admin === true) {
-          localStorage.setItem('team.schedule.user_role', "admin")
-        }
+          localStorage.setItem('team.schedule.user_role', "user")
         dispatch(setCurrentUser(body.user));
         dispatch(reset('signup'));
         // router.history.replace('/home');
@@ -66,6 +64,8 @@ export const login = (userDetails, router) => {
         localStorage.setItem('team.schedule.token', body.token);
         if (body.user.admin === true) {
           localStorage.setItem('team.schedule.user_role', "admin")
+        } else {
+          localStorage.setItem('team.schedule.user_role', "user")
         }
         dispatch(setCurrentUser(body.user));
         dispatch(reset('login'));
