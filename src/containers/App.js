@@ -14,13 +14,6 @@ import Admin from '../views/admin';
 
 const NotFound = () => <div>NotFound</div>
 
-// function isAdmin() {
-//   if (localStorage.getItem('team.schedule.user_role') === "admin") {
-//     return true;
-//   }
-//   return false;
-// }
-
 function isLoggedin(state) {
   debugger
 }
@@ -57,7 +50,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/admin" component={Admin} />
+            <Route path="/admin" component={Admin} />
             <Route component={NotFound} />
           </Switch>
         </div>
