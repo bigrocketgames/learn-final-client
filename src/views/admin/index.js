@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Col, Row, Grid } from 'react-bootstrap';
 
-import SportsList from './sportsList';
+import SportsList from './containers/sportsList';
 
 class Admin extends Component {
 
@@ -27,6 +27,7 @@ class Admin extends Component {
                 <a href="/" className="adminLink">Teams List</a>
               </Col>
             </Row>
+            <br/>
           </Grid>
 
           <Switch>
