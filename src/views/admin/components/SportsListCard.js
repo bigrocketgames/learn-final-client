@@ -9,8 +9,4 @@ const SportsListCard = ({sport}) => (
   </tr>
 )
 
-
-// const SportCard = ({sport}) => (
-
-
 export default SportsListCard;
