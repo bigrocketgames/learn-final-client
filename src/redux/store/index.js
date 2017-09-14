@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { reducer as form } from 'redux-form';
 import auth from '../modules/auth/reducer';
 import sports from '../modules/sports/reducer';
+import subSports from '../modules/subsports/reducer';
 import { loadState, saveState } from './localStorage';
 
 const persistedState = loadState();
@@ -11,7 +12,8 @@ const persistedState = loadState();
 const reducers = combineReducers({
   form,
   auth,
-  sports
+  sports,
+  subSports
 })
 
 const middleware = [thunk]
