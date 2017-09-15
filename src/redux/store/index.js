@@ -5,6 +5,7 @@ import { reducer as form } from 'redux-form';
 import auth from '../modules/auth/reducer';
 import sports from '../modules/sports/reducer';
 import subSports from '../modules/subsports/reducer';
+import users from '../modules/users/reducer';
 import { loadState, saveState } from './localStorage';
 
 const persistedState = loadState();
@@ -13,7 +14,8 @@ const reducers = combineReducers({
   form,
   auth,
   sports,
-  subSports
+  subSports,
+  users
 })
 
 const middleware = [thunk]
