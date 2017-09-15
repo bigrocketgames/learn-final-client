@@ -5,7 +5,6 @@ import 'isomorphic-fetch';
 const API_URL = process.env.REACT_APP_API_URL;
 
 export const getTeamsSuccess = teams => {
-  debugger
   return {
     type: 'GET_TEAMS_SUCCESS',
     teams: teams
