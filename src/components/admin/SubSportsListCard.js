@@ -5,7 +5,7 @@ const SubSportsListCard = ({subSport}) => (
   <tr>
     <td>{subSport.id}</td>
     <td>{subSport.name}</td>
-    <td>{subSport.conference_split}</td>
+    <td>{subSport.conference_split.toString()}</td>
     <td>{subSport.sport.name}</td>
     <td><Button bsStyle="danger" bsSize="small">Delete {subSport.name}</Button></td>
   </tr>
