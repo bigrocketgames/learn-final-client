@@ -6,6 +6,7 @@ import auth from '../modules/auth/reducer';
 import sports from '../modules/sports/reducer';
 import subSports from '../modules/subsports/reducer';
 import users from '../modules/users/reducer';
+import teams from '../modules/teams/reducer';
 import { loadState, saveState } from './localStorage';
 
 const persistedState = loadState();
@@ -15,7 +16,8 @@ const reducers = combineReducers({
   auth,
   sports,
   subSports,
-  users
+  users,
+  teams
 })
 
 const middleware = [thunk]
