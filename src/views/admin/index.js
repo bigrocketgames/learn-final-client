@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Col, Row, Grid } from 'react-bootstrap';
 
+import UsersList from '../../containers/admin/UsersList';
 import SportsList from '../../containers/admin/sportsList';
 import SubSportsList from '../../containers/admin/SubSportsList';
 
@@ -16,7 +17,7 @@ class Admin extends Component {
           <Grid>
             <Row>
               <Col sm={3} className="text-center">
-                <a href="/" className="adminLink">Users List</a>
+                <a href="/admin/users" className="adminLink">Users List</a>
               </Col>
               <Col sm={3} className="text-center">
                 <a href="/admin/sports" className="adminLink">Sports List</a>
@@ -32,6 +33,7 @@ class Admin extends Component {
           </Grid>
 
           <Switch>
+            <Route path={`${match.url}/users`} component={UsersList} />
             <Route path={`${match.url}/sports`} component={SportsList} />
             <Route path={`${match.url}/sub_sports`} component={SubSportsList} />
           </Switch>
