@@ -12,7 +12,6 @@ class TeamsList extends Component {
   }
 
   render() {
-    debugger
     return (
       <div>
         <Table striped bordered responsive hover>
