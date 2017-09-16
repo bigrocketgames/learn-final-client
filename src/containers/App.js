@@ -22,9 +22,20 @@ function isLoggedin(state) {
 class App extends Component {
   render() {
     let adminLink = null;
-    if (localStorage.getItem('team.schedule.user_role') === "admin") {
-      adminLink = <NavItem eventKey={5} href="/admin">Admin</NavItem>;
+    let signUpLink = null;
+    let loginLink = null;
+    let logoutLink = null;
+
+    if (localStorage.getItem('team.schedule.user_role') === null) {
+      signUpLink = <NavItem eventKey={3} href="/signup">Signup</NavItem>;
+      loginLink = <NavItem eventKey={4} href="/login">Login</NavItem>;
+    } else if (localStorage.getItem('team.schedule.user_role') === "admin") {
+      logoutLink = <NavItem eventKey={3} href="/signout">Logout</NavItem>;
+      adminLink = <NavItem eventKey={4} href="/admin">Admin</NavItem>;
+    } else {
+      logoutLink = <NavItem eventKey={3} href="/signout">Logout</NavItem>;
     }
+    
     return(
       <Router history={history}>
         <div className="App">
@@ -41,8 +52,9 @@ class App extends Component {
               </NavDropdown>
             </Nav>
             <Nav pullRight>
-              <NavItem eventKey={3} href="/signup">Signup</NavItem>
-              <NavItem eventKey={4} href="/login">Login</NavItem>
+              {signUpLink}
+              {loginLink}
+              {logoutLink}
               {adminLink}
             </Nav>
           </Navbar>
