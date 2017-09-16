@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  Router,
   Route,
   Switch
 } from 'react-router-dom';
+import history from '../history';
 import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
 
 import Sports from './Sports';
@@ -25,7 +26,7 @@ class App extends Component {
       adminLink = <NavItem eventKey={5} href="/admin">Admin</NavItem>;
     }
     return(
-      <Router>
+      <Router history={history}>
         <div className="App">
           <Navbar staticTop>
             <Navbar.Header>
