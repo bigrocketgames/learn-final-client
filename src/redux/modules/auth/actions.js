@@ -1,6 +1,5 @@
-import React from 'react';
 import 'isomorphic-fetch';
-import { Redirect } from 'react-router';
+import history from '../../../history';
 import { reset, SubmissionError } from 'redux-form';
 
 /* action creators */
@@ -40,7 +39,7 @@ export const signup = (userDetails, router) => {
           localStorage.setItem('team.schedule.user_role', "user")
         dispatch(setCurrentUser(body.user));
         dispatch(reset('signup'));
-        // router.history.replace('/home');
+        history.push("/")
       })
     .catch(err => {
       throw new SubmissionError(err);
@@ -69,6 +68,7 @@ export const login = (userDetails, router) => {
         }
         dispatch(setCurrentUser(body.user));
         dispatch(reset('login'));
+        history.push("/")
       })
     .catch(err => {
       throw new SubmissionError(err);
