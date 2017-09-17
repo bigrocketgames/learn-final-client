@@ -11,6 +11,7 @@ import Sports from './Sports';
 import Signup from '../views/signup';
 import Home from '../views/home';
 import Login from '../views/login';
+import Logout from '../views/logout';
 import Admin from '../views/admin';
 
 const NotFound = () => <div>NotFound</div>
@@ -30,10 +31,10 @@ class App extends Component {
       signUpLink = <NavItem eventKey={3} href="/signup">Signup</NavItem>;
       loginLink = <NavItem eventKey={4} href="/login">Login</NavItem>;
     } else if (localStorage.getItem('team.schedule.user_role') === "admin") {
-      logoutLink = <NavItem eventKey={3} href="/signout">Logout</NavItem>;
+      logoutLink = <NavItem eventKey={3} href="/logout">Logout</NavItem>;
       adminLink = <NavItem eventKey={4} href="/admin">Admin</NavItem>;
     } else {
-      logoutLink = <NavItem eventKey={3} href="/signout">Logout</NavItem>;
+      logoutLink = <NavItem eventKey={3} href="/logout">Logout</NavItem>;
     }
     
     return(
@@ -63,6 +64,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
             <Route path="/admin" component={Admin} />
             <Route component={NotFound} />
           </Switch>
