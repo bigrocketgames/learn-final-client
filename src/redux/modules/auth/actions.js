@@ -19,10 +19,16 @@ export const setCurrentUser = user => {
   }
 }
 
+export const logoutUser = () => {
+  return {
+    type: 'LOGOUT_USER'
+  }
+}
+
 
 // Async actions - connect to Rails API
 
-export const signup = (userDetails, router) => {
+export const signup = (userDetails) => {
   return dispatch => {
     dispatch(authenticationRequest())
     return fetch(`${API_URL}/users`, {
@@ -47,7 +53,7 @@ export const signup = (userDetails, router) => {
   }
 }
 
-export const login = (userDetails, router) => {
+export const login = (userDetails) => {
   return dispatch => {
     dispatch(authenticationRequest())
     return fetch(`${API_URL}/auth`, {
@@ -77,5 +83,10 @@ export const login = (userDetails, router) => {
 }
 
 export const logout = () => {
-  //  need to setup logout route on backend and front end to clear tokens and all localStorage
+  return dispatch => {
+    localStorage.removeItem('team.schedule.token');
+    localStorage.removeItem('team.schedule.user_role');
+    dispatch(logoutUser());
+    history.push("/")
+  }
 }
