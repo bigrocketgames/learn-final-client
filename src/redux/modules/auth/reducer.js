@@ -19,6 +19,13 @@ const auth = (state = initialState, action) => {
         isAuthenticating: false,
         currentUser: action.user
       }
+    
+    case 'LOGOUT_USER':
+      return {
+        isAuthenticated: false,
+        isAuthenticating: true,
+        currentUser: {}
+      }
 
     default:
       return state;
