@@ -5,7 +5,8 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <h3>Team Schedules Home Page</h3>
+        <h2 className="text-center">Team Schedules</h2>
+        <h6 className="text-center">Find out when your favorite team plays</h6>
       </div>
     )
   }
