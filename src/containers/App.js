@@ -16,10 +16,6 @@ import Admin from '../views/admin';
 
 const NotFound = () => <div>NotFound</div>
 
-function isLoggedin(state) {
-  debugger
-}
-
 class App extends Component {
   render() {
     let adminLink = null;
