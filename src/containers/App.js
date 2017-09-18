@@ -15,8 +15,7 @@ import Home from '../views/home';
 import Login from '../views/login';
 import Logout from '../views/logout';
 import Admin from '../views/admin';
-
-const NotFound = () => <div>NotFound</div>
+import NotFound from '../views/404';
 
 class App extends Component {
   render() {
