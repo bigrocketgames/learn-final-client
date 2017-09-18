@@ -14,11 +14,20 @@ export const getSubSportsSuccess = subSports => {
 
 // Async actions - connect to Rails API
 
-export const getSubSports = (router) => {
+export const getSubSports = () => {
   return dispatch => {
     return fetch(`${API_URL}/sub_sports`)
       .then(response => response.json())
       .then(subSports => dispatch(getSubSportsSuccess(subSports)))
       .catch(error => console.log(error));
+  }
+}
+
+export const getSubSport = (sub_sport_route) => {
+  return dispatch => {
+    return fetch(`${API_URL}${sub_sport_route}`)
+      .then(response => response.json())
+      .then(subSports => dispatch(getSubSportsSuccess(subSports)))
+      .catch(error => console.log(error))
   }
 }
