@@ -14,6 +14,11 @@ body {
   to { transform: rotate(360deg); }
 }
 
-li.dropdown ul.dropdown-menu div li a {
+ul.dropdown-menu div li a {
   margin-left: 10px;
+}
+
+li.dropdown ul.dropdown-menu li.dropdown ul.dropdown-menu {
+  top: -6px;
+  left: 160px;
 }
