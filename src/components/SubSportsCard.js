@@ -7,7 +7,7 @@ export const SubSportTeamsList = (team) => {
       <td>{team.team.id}.</td>
       <td>{team.team.fullname}</td>
       <td><a href={`/teams/${team.team.id}/schedule`}>See {team.team.fullname} Schedule</a></td>
-      <td><Button><Glyphicon glyph="plus" /></Button></td>
+      <td><Button bsSize="small"><Glyphicon glyph="plus" /></Button></td>
     </tr>
   )
 }
