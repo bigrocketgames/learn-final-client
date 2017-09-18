@@ -1,6 +1,11 @@
 import React from 'react';
 import { MenuItem, NavDropdown } from 'react-bootstrap';
-import SubSportCardNav from './SubSportCardNav.js';
+
+export const SubSportCardNav = (subSport) => {
+  return (
+    <MenuItem eventKey={`3.x.${subSport.subSport.id}`} href={`/sub_sports/${subSport.subSport.id}`}>{subSport.subSport.name}</MenuItem>
+  )
+}
 
 const SportCardNav = (sport) => {
   if (sport.sport.sub_sports.length > 0) {
