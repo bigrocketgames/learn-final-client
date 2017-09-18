@@ -5,9 +5,11 @@ import {
   Switch
 } from 'react-router-dom';
 import history from '../history';
-import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-import Sports from './Sports';
+import SportsNav from './SportsNav';
+
+import SubSport from '../views/subSport';
 import Signup from '../views/signup';
 import Home from '../views/home';
 import Login from '../views/login';
@@ -44,9 +46,7 @@ class App extends Component {
             </Navbar.Header>
             <Nav>
               <NavItem eventKey={1} href="/">Home</NavItem>
-              <NavDropdown eventKey={2} title="Sports" id="basic-nav-dropdown">
-              <Sports />
-              </NavDropdown>
+              <SportsNav />
             </Nav>
             <Nav pullRight>
               {signUpLink}
@@ -61,6 +61,7 @@ class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
+            <Route exact path="/sub_sports/:id(\d+)" component={SubSport} />
             <Route path="/admin" component={Admin} />
             <Route component={NotFound} />
           </Switch>
