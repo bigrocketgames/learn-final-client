@@ -1,17 +1,13 @@
 import React from 'react';
-import {Table} from 'react-bootstrap';
 
 const ScheduleCard = (schedule) => {
   return (
-    <Table bordered striped>
-      <thead>
-        <tr>
-        </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </Table>
+    <tr>
+      <td>{new Date(schedule.game.game_time).toString()}</td>
+      <td>{schedule.game.away_team.fullname}</td>
+      <td>{schedule.game.home_team.fullname}</td>
+      <td>{schedule.game.location}</td>
+    </tr>
   )
 }
 
