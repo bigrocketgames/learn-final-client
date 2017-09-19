@@ -16,9 +16,8 @@ export const getTeamsSuccess = teams => {
 export const getTeams = (router) => {
   return dispatch => {
     return fetch(`${API_URL}/teams`)
-    .then(response => response.json())
-    .then(teams => dispatch(getTeamsSuccess(teams)))
-    .catch(error => console.log(error));
+      .then(response => response.json())
+      .then(teams => dispatch(getTeamsSuccess(teams)))
+      .catch(error => console.log(error));
   }
-
 }
