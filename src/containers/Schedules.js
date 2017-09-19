@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Table } from 'react-bootstrap';
 
+import ScheduleCard from '../components/ScheduleCard';
 import { getSchedule } from '../redux/modules/schedule/actions';
 import { getTeam } from '../redux/modules/teams/actions';
 
@@ -14,8 +16,21 @@ class Schedules extends Component {
   
   render() {
     return (
-      <div>
+      <div className="container">
         <h3 className="text-center">{this.props.team.fullname} Schedule</h3>
+        <Table bordered striped condensed>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Away Team</th>
+              <th>Home Team</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.schedule.map(game => <ScheduleCard key={game.id} game={game} />)}
+          </tbody>
+        </Table>
       </div>
     )
   }
@@ -23,7 +38,7 @@ class Schedules extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    schedule: state.schedule,
+    schedule: state.schedules,
     team: state.teams
   })
 }
