@@ -13,9 +13,18 @@ export const getTeamsSuccess = teams => {
 
 // Async actions - connect to Rails API
 
-export const getTeams = (router) => {
+export const getTeams = () => {
   return dispatch => {
     return fetch(`${API_URL}/teams`)
+      .then(response => response.json())
+      .then(teams => dispatch(getTeamsSuccess(teams)))
+      .catch(error => console.log(error));
+  }
+}
+
+export const getTeam = (team_url) => {
+  return dispatch => {
+    return fetch(`${API_URL}${team_url}`)
       .then(response => response.json())
       .then(teams => dispatch(getTeamsSuccess(teams)))
       .catch(error => console.log(error));
