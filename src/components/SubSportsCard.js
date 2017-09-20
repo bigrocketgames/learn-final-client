@@ -1,16 +1,7 @@
 import React from 'react';
-import { Table, Button, Glyphicon } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
-export const SubSportTeamsList = (team) => {
-  return (
-    <tr>
-      <td>{team.team.id}.</td>
-      <td>{team.team.fullname}</td>
-      <td><a href={`/teams/${team.team.id}/schedule`}>See {team.team.fullname} Schedule</a></td>
-      <td><Button bsSize="small"><Glyphicon glyph="plus" /></Button></td>
-    </tr>
-  )
-}
+import SubSportTeamsList from '../containers/TeamsList';
 
 const SubSportsCard = (subSport) => {
   if (subSport.subSport.teams !== undefined) {
