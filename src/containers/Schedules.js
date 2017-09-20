@@ -23,6 +23,7 @@ class Schedules extends Component {
             <tr>
               <th>Date</th>
               <th>Away Team</th>
+              <th></th>
               <th>Home Team</th>
               <th>Location</th>
             </tr>
