@@ -6,22 +6,30 @@ class SubSportTeamsList extends Component {
   constructor(props) {
     super(props)
 
-    this.handleFavorite = this.handleFavorite.bind(this)
+    this.addFavorite = this.addFavorite.bind(this);
+    this.removeFavorite = this.removeFavorite.bind(this)
   }
 
-  handleFavorite() {
+  addFavorite() {
     debugger
-    console.log("this is a start");
+    console.log("add to favorites");
+  }
+
+  removeFavorite() {
+    console.log("remove favorite");
   }
 
   render() {
     const team = this.props.team
+
+
+
     return (
       <tr>
         <td>{team.id}.</td>
         <td>{team.fullname}</td>
         <td><a href={`/teams/${team.id}/schedule`}>See {team.fullname} Schedule</a></td>
-        <td><Button bsSize="small" onClick={this.handleFavorite} ><Glyphicon glyph="plus" /></Button></td>
+        <td><Button bsSize="small" onClick={this.addFavorite} ><Glyphicon glyph="plus" /></Button></td>
       </tr>
     )
   }
@@ -32,16 +40,5 @@ const mapStateToProps = (state) => {
     user: state.auth.currentUser
   }
 }
-
-// const SubSportTeamsList = (team) => {
-//   return (
-    // <tr>
-    //   <td>{team.team.id}.</td>
-    //   <td>{team.team.fullname}</td>
-    //   <td><a href={`/teams/${team.team.id}/schedule`}>See {team.team.fullname} Schedule</a></td>
-    //   <td><Button bsSize="small"><Glyphicon glyph="plus" /></Button></td>
-    // </tr>
-//   )
-// }
 
 export default connect((mapStateToProps), { })(SubSportTeamsList)
