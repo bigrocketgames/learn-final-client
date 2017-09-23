@@ -6,8 +6,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login">
-        <h2>Sign In</h2>
+      <div className="login container">
+        <h2 className="text-center">Sign In</h2>
         <LoginForm/>
       </div>
     )

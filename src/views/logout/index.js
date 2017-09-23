@@ -12,7 +12,7 @@ class Logout extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container text-center">
         You are signing out.
       </div>
     )
