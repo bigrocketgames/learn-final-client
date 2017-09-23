@@ -29,6 +29,7 @@ const SubSportsCard = (subSport) => {
         <div className="container">
           <h2 className="text-center">{subSport.subSport.name} TEAMS</h2>
           <h5>Unfortunately, there are no teams to show for this league at this time.</h5>
+          <h5>We are working to update this as soon as possible.</h5>
         </div>
       )
     }
