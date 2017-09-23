@@ -1,6 +1,6 @@
 export default (state = [], action) => {
   switch(action.type) {
-    case 'SET_FAVORITE_TEAM_SUCCESS':
+    case 'GET_USERTEAMS_SUCCESS':
       return action.userTeams;
 
     default:
