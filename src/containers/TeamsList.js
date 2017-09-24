@@ -48,7 +48,7 @@ class SubSportTeamsList extends Component {
     if (team) {
       let arraylength = this.props.userTeams.length
       for (var i=0; i<arraylength; i++) {
-        if (this.props.userTeams[i].team_id === team.id){
+        if (this.props.userTeams[i].team.id === team.id){
           favoriteButton = <Button bsSize="small" onClick={this.removeFavorite} id={this.props.userTeams[i].id} ><Glyphicon glyph="minus" /></Button>
         }
       }
