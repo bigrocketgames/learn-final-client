@@ -11,14 +11,15 @@ let SignupForm = props => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit(handleSignUp)}>
-      <div>
+      <div className="formEmail">
         <label htmlFor="email">Email</label>
         <Field name="email" component="input" type="email" />
       </div>
-      <div>
+      <div className="formPassword">
         <label htmlFor="password">Password</label>
         <Field name="password" component="input" type="password" />
       </div>
+      <br />
       <button type="submit">Sign Up!</button>
     </form>
   )

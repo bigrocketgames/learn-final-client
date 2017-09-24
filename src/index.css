@@ -22,3 +22,19 @@ li.dropdown ul.dropdown-menu li.dropdown ul.dropdown-menu {
   top: -6px;
   left: 160px;
 }
+
+button {
+  color: #df691a;
+}
+
+div.formEmail label {
+  width: 75px;
+}
+
+div.formPassword {
+  margin-top: 7px;
+}
+
+div.formPassword label {
+  width: 75px;
+}
