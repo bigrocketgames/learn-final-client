@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getUserTeams } from '../redux/modules/userteams/actions';
-import { UserTeamsCard } from '../components/UserTeamsCard';
+import UserTeamsCard from '../components/UserTeamsCard';
 
 class UserTeams extends Component {
 
@@ -15,9 +15,7 @@ class UserTeams extends Component {
   render() {
     return (
       <div>
-        <h3 className="text-center">Your Favorite Teams</h3>
-        <p className="text-center">Click them to see their schedule</p>
-        <hr/>
+        {this.props.userTeams.map(userTeam => <UserTeamsCard key={userTeam.id} userTeam={userTeam} />)}
       </div>
     )
   }
@@ -25,7 +23,8 @@ class UserTeams extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.auth.currentUser
+    user: state.auth.currentUser,
+    userTeams: state.userTeams
   }
 }
 
