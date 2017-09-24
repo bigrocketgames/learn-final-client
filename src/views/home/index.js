@@ -10,7 +10,7 @@ class Home extends Component {
     if (this.props.user.id) {
       pageHeader = <div>
           <h3 className="text-center">Your Favorite Teams</h3>
-          <p className="text-center">Click them to see their schedule</p><hr/>
+          <p className="text-center">Click a team name to see their schedule</p><hr/>
           <UserTeams />
           </div>
     } else {
