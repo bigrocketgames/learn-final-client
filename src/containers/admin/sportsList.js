@@ -4,6 +4,7 @@ import { Table } from 'react-bootstrap';
 
 import SportsListCard from '../../components/admin/SportsListCard';
 import { getSports } from '../../redux/modules/sports/actions';
+import AddSportForm from './forms/addSportForm';
 
 class SportsList extends Component {
 
@@ -26,8 +27,7 @@ class SportsList extends Component {
             {this.props.sports.map(sport => <SportsListCard key={sport.id} sport={sport} />)}
           </tbody>
         </Table>
-
-        {/* add sports form for adding a new sport below the table. */}
+        <AddSportForm />
       </div>
     )
   }
