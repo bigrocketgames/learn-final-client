@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+
+import SubSportsDeleteButton from '../../containers/admin/SubSportsDeleteButton';
 
 const SubSportsListCard = ({subSport}) => (
   <tr>
@@ -7,7 +8,7 @@ const SubSportsListCard = ({subSport}) => (
     <td>{subSport.name}</td>
     <td>{subSport.conference_split.toString()}</td>
     <td>{subSport.sport.name}</td>
-    <td><Button bsStyle="danger" bsSize="small">Delete {subSport.name}</Button></td>
+    <SubSportsDeleteButton subSport={subSport} />
   </tr>
 )
 
