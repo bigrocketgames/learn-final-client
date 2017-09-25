@@ -4,6 +4,7 @@ import { Table } from 'react-bootstrap';
 
 import SubSportsListCard from '../../components/admin/SubSportsListCard';
 import { getSubSports } from '../../redux/modules/subsports/actions';
+import AddSubSportForm from './forms/addSubSportForm';
 
 class SubSportsList extends Component {
 
@@ -29,7 +30,7 @@ class SubSportsList extends Component {
           </tbody>
         </Table>
 
-        {/* add sports form for adding a new sport below the table. */}
+        <AddSubSportForm />
       </div>
     )
   }
