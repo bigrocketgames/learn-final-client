@@ -1,4 +1,5 @@
 import 'isomorphic-fetch';
+import {reset, SubmissionError} from 'redux-form';
 
 /* action creators */
 
@@ -29,5 +30,43 @@ export const getSubSport = (sub_sport_route) => {
       .then(response => response.json())
       .then(subSports => dispatch(getSubSportsSuccess(subSports)))
       .catch(error => console.log(error))
+  }
+}
+
+export const addSubSport = (subSportDetails) => {
+  return dispatch => {
+    return fetch(`${API_URL}/sub_sports`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      },
+      body: JSON.stringify({sub_sport: subSportDetails})
+    })
+      .then(response => response.json())
+      .then(subSports => {
+        dispatch(getSubSportsSuccess(subSports));
+        dispatch(reset('addSubSport'));
+      })
+      .catch(err => {
+        throw new SubmissionError(err);
+      })
+  }
+}
+
+export const deleteSubSport = (subSportId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/sub_sports/${subSportId}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      }
+    })
+      .then(response => response.json())
+      .then(subSports => dispatch(getSubSportsSuccess(subSports)))
+      .catch(error => console.log(error));
   }
 }
