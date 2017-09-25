@@ -42,7 +42,7 @@ export const signup = (userDetails) => {
       .then(response => response.json())
       .then(body => {
         localStorage.setItem('team.schedule.token', body.token);
-          localStorage.setItem('team.schedule.user_role', "user")
+        localStorage.setItem('team.schedule.user_role', "user")
         dispatch(setCurrentUser(body.user));
         dispatch(reset('signup'));
         history.push("/")
