@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-import SubSportTeamsList from '../containers/TeamsList';
+import SubSportTeamsList from '../containers/SubSportsTeamsList';
 
 const SubSportsCard = (subSport) => {
   if (subSport.subSport.teams !== undefined) {
