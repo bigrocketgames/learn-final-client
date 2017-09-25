@@ -38,3 +38,7 @@ div.formPassword {
 div.formPassword label {
   width: 75px;
 }
+
+select, option {
+  color: black;
+}
