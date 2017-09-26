@@ -18,7 +18,6 @@ class SportsList extends Component {
         <Table striped bordered responsive hover>
           <thead>
             <tr>
-              <th>#</th>
               <th>Name</th>
               <th>Delete</th>
             </tr>
