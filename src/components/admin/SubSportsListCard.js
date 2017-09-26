@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SubSportsDeleteButton from '../../containers/admin/SubSportsDeleteButton';
+import SubSportsDeleteButton from '../../containers/admin/buttons/SubSportsDeleteButton';
 
 const SubSportsListCard = ({subSport}) => (
   <tr>

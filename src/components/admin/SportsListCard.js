@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SportsDeleteButton from '../../containers/admin/SportsDeleteButton';
+import SportsDeleteButton from '../../containers/admin/buttons/SportsDeleteButton';
 
 
 
