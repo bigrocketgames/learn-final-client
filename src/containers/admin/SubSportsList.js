@@ -18,7 +18,6 @@ class SubSportsList extends Component {
         <Table striped bordered responsive hover>
           <thead>
             <tr>
-              <th>#</th>
               <th>Name</th>
               <th>Conference Split</th>
               <th>Sub Sport of:</th>
