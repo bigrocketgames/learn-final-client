@@ -1,9 +1,9 @@
 import React from 'react';
 
-const UserTeamsCard = (userTeam) => {
+const UserTeamsCard = ({userTeam}) => {
   return (
     <h3>
-      <a href={`/teams/${userTeam.userTeam.team.id}/schedule`}>{userTeam.userTeam.team.fullname}</a>
+      <a href={`/teams/${userTeam.team.id}/schedule`}>{userTeam.team.fullname}</a>
     </h3>
   )
 }
