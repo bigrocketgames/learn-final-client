@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
-import { deleteSport } from '../../redux/modules/sports/actions';
+import { deleteSport } from '../../../redux/modules/sports/actions';
 
 class SportDeleteButton extends Component {
   constructor(props) {
