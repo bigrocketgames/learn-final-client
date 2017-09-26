@@ -19,6 +19,7 @@ class UsersList extends Component {
             <tr>
               <th>#</th>
               <th>Email</th>
+              <th>Upgrade to Admin</th>
               <th>Delete</th>
             </tr>
           </thead>
