@@ -17,9 +17,8 @@ class UsersList extends Component {
         <Table striped bordered responsive hover>
           <thead>
             <tr>
-              <th>#</th>
               <th>Email</th>
-              <th>Admin?</th>
+              <th>Role</th>
               <th>Upgrade to Admin</th>
               <th>Delete</th>
             </tr>
