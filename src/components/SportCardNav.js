@@ -1,23 +1,23 @@
 import React from 'react';
 import { MenuItem, NavDropdown } from 'react-bootstrap';
 
-export const SubSportCardNav = (subSport) => {
+export const SubSportCardNav = ({subSport}) => {
   return (
-    <MenuItem eventKey={`3.x.${subSport.subSport.id}`} href={`/sub_sports/${subSport.subSport.id}`}>{subSport.subSport.name}</MenuItem>
+    <MenuItem eventKey={`3.x.${subSport.id}`} href={`/sub_sports/${subSport.id}`}>{subSport.name}</MenuItem>
   )
 }
 
-const SportCardNav = (sport) => {
-  if (sport.sport.sub_sports.length > 0) {
+const SportCardNav = ({sport}) => {
+  if (sport.sub_sports.length > 0) {
     // return a nested dropdown menu here
     return (
-      <NavDropdown eventKey={`3.${sport.sport.id}`} title={`${sport.sport.name}`} id="subSport-nav-dropdown">
-        {sport.sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />)}
+      <NavDropdown eventKey={`3.${sport.id}`} title={`${sport.name}`} id="subSport-nav-dropdown">
+        {sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />)}
       </NavDropdown>
     )
   } else {
     return (
-      <MenuItem eventKey={`3.${sport.sport.id}`} href={`/sport/${sport.sport.id}`}>{sport.sport.name}</MenuItem>
+      <MenuItem eventKey={`3.${sport.id}`} href={`/sport/${sport.id}`}>{sport.name}</MenuItem>
     )
   }
 }
