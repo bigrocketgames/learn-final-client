@@ -1,4 +1,5 @@
 import 'isomorphic-fetch';
+import {reset, SubmissionError} from 'redux-form';
 
 /* action creators */
 
@@ -28,5 +29,27 @@ export const getTeam = (team_url) => {
       .then(response => response.json())
       .then(teams => dispatch(getTeamsSuccess(teams)))
       .catch(error => console.log(error));
+  }
+}
+
+export const addTeam = (teamDetails) => {
+  return dispatch => {
+    return fetch(`${API_URL}/teams`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      },
+      body: JSON.stringify({team: teamDetails})
+    })
+      .then(response => response.json())
+      .then(teams => {
+        dispatch(getTeamsSuccess(teams));
+        dispatch(reset('addTeam'));
+      })
+      .catch(err => {
+        throw new SubmissionError(err);
+      })
   }
 }
