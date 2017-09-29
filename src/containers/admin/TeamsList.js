@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
 
 import TeamsListCard from '../../components/admin/TeamsListCard';
+import AddTeamForm from './forms/addTeamForm';
 import { getTeams } from '../../redux/modules/teams/actions';
+import { getSubSports } from '../../redux/modules/subsports/actions';
 
 class TeamsList extends Component {
 
   componentDidMount() {
+    this.props.getSubSports();
     this.props.getTeams();
   }
 
@@ -28,6 +32,8 @@ class TeamsList extends Component {
             {this.props.teams.map(team => <TeamsListCard key={team.id} team={team} />)}
           </tbody>
         </Table>
+
+        <AddTeamForm />
       </div>
     )
   }
@@ -39,4 +45,11 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, {getTeams})(TeamsList);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getTeams: getTeams,
+    getSubSports: getSubSports
+  }, dispatch);
+}
+
+export default connect((mapStateToProps), mapDispatchToProps)(TeamsList)
