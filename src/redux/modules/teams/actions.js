@@ -53,3 +53,19 @@ export const addTeam = (teamDetails) => {
       })
   }
 }
+
+export const deleteTeam = (teamId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/teams/${teamId}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      }
+    })
+      .then(response => response.json())
+      .then(teams => dispatch(getTeamsSuccess(teams)))
+      .catch(error => console.log(error));
+  }
+}
