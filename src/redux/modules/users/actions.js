@@ -61,3 +61,19 @@ export const downgradeUser = (userId) => {
       .catch(error => console.log(error));
   }
 }
+
+export const RemoveUser = (userId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/users/${userId}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      }
+    })
+      .then(response => response.json())
+      .then(users => dispatch(getUsersSuccess(users)))
+      .catch(error => console.log(error))
+  }
+}
