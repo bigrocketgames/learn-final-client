@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+
+import RemoveTeamButton from '../../containers/admin/buttons/RemoveTeamButton';
 
 const TeamsListCard = ({team}) => (
   <tr>
@@ -7,7 +8,7 @@ const TeamsListCard = ({team}) => (
     <td>{team.fullname}</td>
     <td>{team.stadium_location}</td>
     <td>{team.sub_sport.name}</td>
-    <td><Button bsStyle="danger" bsSize="small">Delete {team.fullname}</Button></td>
+    <td><RemoveTeamButton team={team} /></td>
   </tr>
 )
 
