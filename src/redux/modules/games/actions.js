@@ -77,3 +77,19 @@ export const updateGame = (gameDetails, gameId) => {
       })
   }
 }
+
+export const deleteGame = (gameId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/games/${gameId}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      }
+    })
+      .then(response => response.json())
+      .then(games => dispatch(getGamesSuccess(games)))
+      .catch(error => console.log(error))
+  }
+}
