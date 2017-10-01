@@ -1,4 +1,6 @@
 import 'isomorphic-fetch';
+import history from '../../../history';
+import { reset, SubmissionError } from 'redux-form';
 
 /* action creators */
 
@@ -31,6 +33,25 @@ export const getGame = (gameId) => {
   }
 }
 
-export const updateGame = (gameId) => {
-  
+export const updateGame = (gameDetails, gameId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/games/${gameId}`, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      },
+      body: JSON.stringify({game: gameDetails})
+    })
+      .then(response => response.json())
+      .then(games => {
+        dispatch(getGamesSuccess(games))
+        dispatch(reset('editGame'));
+        history.push("/admin/games")
+      })
+      .catch(err => {
+        throw new SubmissionError(err);
+      })
+  }
 }
