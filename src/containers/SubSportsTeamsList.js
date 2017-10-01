@@ -59,7 +59,6 @@ class SubSportTeamsList extends Component {
 
     return (
       <tr>
-        <td>{team.id}.</td>
         <td>{team.fullname}</td>
         <td><a href={`/teams/${team.id}/schedule`}>See {team.fullname} Schedule</a></td>
         <td>{favoriteButton}</td>

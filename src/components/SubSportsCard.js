@@ -12,7 +12,6 @@ const SubSportsCard = ({subSport}) => {
           <Table striped bordered responsive>
             <thead>
               <tr>
-                <th>#</th>
                 <th>Team Name:</th>
                 <th>See Schedule:</th>
                 <th>Add To Favorites:</th>
