@@ -13,8 +13,8 @@ let AddSportForm = props => {
     <form onSubmit={handleSubmit(handleAddSport)}>
       <div className="container">
         <h2>Add a New Sport</h2>
-        <label htmlFor="name">Sport Name</label>
         <div>
+          <label htmlFor="name">Sport Name:</label>
           <Field name="name" component="input" type="text" placeholder="Sport"/>
         </div>
         <div>
