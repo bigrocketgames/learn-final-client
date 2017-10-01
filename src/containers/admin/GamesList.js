@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
 
 import { getGames } from '../../redux/modules/games/actions';
+import { getTeams } from 
+'../../redux/modules/teams/actions';
 import GamesListCard from '../../components/admin/GamesListCard';
+import AddGameForm from './forms/addGameForm';
 
 class GamesList extends Component {
 
   componentDidMount(){
     this.props.getGames();
+    this.props.getTeams();
   }
 
   render(){
@@ -31,6 +36,7 @@ class GamesList extends Component {
             {this.props.games.map(game => <GamesListCard key={game.id} game={game} />)}
           </tbody>
         </Table>
+        <AddGameForm />
       </div>
     )
   }
@@ -42,5 +48,12 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, {getGames})(GamesList)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getGames: getGames,
+    getTeams: getTeams
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamesList)
 

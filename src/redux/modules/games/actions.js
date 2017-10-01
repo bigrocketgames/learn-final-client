@@ -33,6 +33,28 @@ export const getGame = (gameId) => {
   }
 }
 
+export const addGame = (gameDetails) => {
+  return dispatch => {
+    return fetch(`${API_URL}/games`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer: " + localStorage.getItem('team.schedule.token')
+      },
+      body: JSON.stringify({game: gameDetails})
+    })
+      .then(response => response.json())
+      .then(games => {
+        dispatch(getGamesSuccess(games))
+        dispatch(reset('addGame'))
+      })
+      .catch(err => {
+        throw new SubmissionError(err);
+      })
+  }
+}
+
 export const updateGame = (gameDetails, gameId) => {
   return dispatch => {
     return fetch(`${API_URL}/games/${gameId}`, {
