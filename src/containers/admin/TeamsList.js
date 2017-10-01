@@ -18,6 +18,7 @@ class TeamsList extends Component {
   render() {
     return (
       <div>
+        <h2 className="text-center">Teams List</h2>
         <Table striped bordered responsive hover>
           <thead>
             <tr>

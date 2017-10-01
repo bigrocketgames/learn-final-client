@@ -15,6 +15,7 @@ class SubSportsList extends Component {
   render() {
     return (
       <div>
+        <h2 className="text-center">Sub Sports List</h2>
         <Table striped bordered responsive hover>
           <thead>
             <tr>
