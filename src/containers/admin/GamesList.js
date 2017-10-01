@@ -22,6 +22,7 @@ class GamesList extends Component {
               <th>Away Team</th>
               <th></th>
               <th>Home Team</th>
+              <th>Game Location</th>
               <th>Edit Game</th>
               <th>Delete Game</th>
             </tr>

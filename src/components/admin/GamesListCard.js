@@ -11,6 +11,7 @@ const GamesListCard = ({game}) => {
       <td>{game.away_team.fullname}</td>
       <td>@</td>
       <td>{game.home_team.fullname}</td>
+      <td>{game.location}</td>
       <td><a href={`/admin/games/${game.id}/edit`}>Edit Game</a></td>
       <td><RemoveGameButton game={game}/></td>
     </tr>
