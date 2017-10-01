@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
+import { updateGame } from '../../../redux/modules/games/actions';
+
 const handleEditGame = (values, dispatch, props) => {
   if(values.game_time === undefined) {
     values.game_time = props.games.game_time
@@ -9,7 +11,7 @@ const handleEditGame = (values, dispatch, props) => {
   if(values.location === undefined) {
     values.location = props.games.location
   }
-  debugger
+  dispatch(updateGame(values, props.games.id));
 }
 
 let EditGameForm = props => {
