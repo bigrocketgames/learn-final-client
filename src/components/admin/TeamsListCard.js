@@ -4,7 +4,6 @@ import RemoveTeamButton from '../../containers/admin/buttons/RemoveTeamButton';
 
 const TeamsListCard = ({team}) => (
   <tr>
-    <td>{team.id}</td>
     <td>{team.fullname}</td>
     <td>{team.stadium_location}</td>
     <td>{team.sub_sport.name}</td>

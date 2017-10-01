@@ -21,7 +21,6 @@ class TeamsList extends Component {
         <Table striped bordered responsive hover>
           <thead>
             <tr>
-              <th>#</th>
               <th>Team Name</th>
               <th>Home Stadium</th>
               <th>Sub Sport</th>
