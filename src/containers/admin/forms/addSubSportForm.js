@@ -37,7 +37,7 @@ let AddSubSportForm = props => {
           </Field>
         <div>
           <button type="submit" disabled={pristine || submitting}>
-            Add Sport
+            Add SubSport
           </button>
           <button type="button" disabled={pristine || submitting} onClick={reset}>
             Clear Form
