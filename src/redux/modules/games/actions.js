@@ -13,6 +13,13 @@ export const getGamesSuccess = (games) => {
   }
 }
 
+export const createGameSuccess = (game) => {
+  return {
+    type: 'CREATE_GAME_SUCCESS',
+    game: game
+  }
+}
+
 // Async actions - connect to Rails API
 
 export const getGames = () => {
@@ -45,8 +52,8 @@ export const addGame = (gameDetails) => {
       body: JSON.stringify({game: gameDetails})
     })
       .then(response => response.json())
-      .then(games => {
-        dispatch(getGamesSuccess(games))
+      .then(game => {
+        dispatch(createGameSuccess(game))
         dispatch(reset('addGame'))
       })
       .catch(err => {
