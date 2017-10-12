@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import { Col, Row, Grid } from 'react-bootstrap';
 
 import UsersList from '../../containers/admin/UsersList';
@@ -20,21 +20,21 @@ class Admin extends Component {
           <Grid>
             <Row>
               <Col sm={4} className="text-center">
-                <a href="/admin/users" className="adminLink">Users List</a>
+                <Link to={"/admin/users"} className="adminLink">Users List</Link>
               </Col>
               <Col sm={4} className="text-center">
-                <a href="/admin/sports" className="adminLink">Sports List</a>
+                <Link to={"/admin/sports"} className="adminLink">Sports List</Link>
               </Col>
               <Col sm={4} className="text-center">
-                <a href="/admin/sub_sports" className="adminLink">Sub Sports List</a>
+                <Link to={"/admin/sub_sports"} className="adminLink">Sub Sports List</Link>
               </Col>
             </Row>
             <Row>
               <Col sm={4} className="text-center">
-                <a href="/admin/teams" className="adminLink">Teams List</a>
+                <Link to={"/admin/teams"} className="adminLink">Teams List</Link>
               </Col>
               <Col sm={4} className="text-center">
-                <a href="/admin/games" className="adminLink">Games List</a>
+                <Link to={"/admin/games"} className="adminLink">Games List</Link>
               </Col>
             </Row>
             <br/>

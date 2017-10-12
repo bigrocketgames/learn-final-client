@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -60,7 +61,7 @@ class SubSportTeamsList extends Component {
     return (
       <tr>
         <td>{team.fullname}</td>
-        <td><a href={`/teams/${team.id}/schedule`}>See {team.fullname} Schedule</a></td>
+        <td><Link to={`/teams/${team.id}/schedule`}>See {team.fullname} Schedule</Link></td>
         <td>{favoriteButton}</td>
       </tr>
     )
