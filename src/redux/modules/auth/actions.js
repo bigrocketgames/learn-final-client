@@ -19,6 +19,12 @@ export const setCurrentUser = user => {
   }
 }
 
+export const failedLogin = () => {
+  return {
+    type: 'AUTHENTICATION_FAILED'
+  }
+}
+
 export const logoutUser = () => {
   return {
     type: 'LOGOUT_USER'
@@ -66,15 +72,20 @@ export const login = (userDetails) => {
     })
       .then(response => response.json())
       .then(body => {
-        localStorage.setItem('team.schedule.token', body.token);
-        if (body.user.admin === true) {
-          localStorage.setItem('team.schedule.user_role', "admin")
+        if (body.token){
+          localStorage.setItem('team.schedule.token', body.token);
+          if (body.user.admin === true) {
+            localStorage.setItem('team.schedule.user_role', "admin")
+          } else {
+            localStorage.setItem('team.schedule.user_role', "user")
+          }
+          dispatch(setCurrentUser(body.user));
+          dispatch(reset('login'));
+          history.push('/')
         } else {
-          localStorage.setItem('team.schedule.user_role', "user")
+          dispatch(failedLogin());
+          dispatch(reset('login'));
         }
-        dispatch(setCurrentUser(body.user));
-        dispatch(reset('login'));
-        history.push("/")
       })
     .catch(err => {
       throw new SubmissionError(err);

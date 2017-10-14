@@ -1,7 +1,8 @@
 const initialState = {
   isAuthenticated: false,
   isAuthenticating: true,
-  currentUser: {}
+  currentUser: {},
+  error: ''
 }
 
 const auth = (state = initialState, action) => {
@@ -17,14 +18,22 @@ const auth = (state = initialState, action) => {
       return {
         isAuthenticated: true,
         isAuthenticating: false,
-        currentUser: action.user
+        currentUser: action.user,
+        error: ''
+      }
+
+    case 'AUTHENTICATION_FAILED':
+      return {
+        ...state,
+        error: "Invalid username/password combination."
       }
     
     case 'LOGOUT_USER':
       return {
         isAuthenticated: false,
         isAuthenticating: true,
-        currentUser: {}
+        currentUser: {},
+        error: ''
       }
 
     default:
