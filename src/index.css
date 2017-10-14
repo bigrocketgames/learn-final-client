@@ -51,3 +51,8 @@ label {
   margin-right: 10px;
 }
 
+.ERROR {
+  margin: 10px;
+  padding: 10px;
+  background-color: red;
+}
