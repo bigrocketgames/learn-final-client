@@ -4,8 +4,12 @@ export default (state = [], action) => {
       return action.games;
 
     case 'CREATE_GAME_SUCCESS':
-      state.push(action.game)
-      return state;
+      const game = Object.assign({}, action.game);
+      return state.concat(game);
+
+    case 'REMOVE_GAME_SUCCESS':
+      const games = state.filter(state => state.id !== action.gameId)
+      return games;
 
     default:
       return state;

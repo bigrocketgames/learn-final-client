@@ -20,6 +20,13 @@ export const createGameSuccess = (game) => {
   }
 }
 
+export const removeGameSuccess = (game) => {
+  return {
+    type: 'REMOVE_GAME_SUCCESS',
+    gameId: game.id
+  }
+}
+
 // Async actions - connect to Rails API
 
 export const getGames = () => {
@@ -96,7 +103,7 @@ export const deleteGame = (gameId) => {
       }
     })
       .then(response => response.json())
-      .then(games => dispatch(getGamesSuccess(games)))
+      .then(game => dispatch(removeGameSuccess(game)))
       .catch(error => console.log(error))
   }
 }
