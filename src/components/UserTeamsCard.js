@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UserTeamsCard = ({userTeam}) => {
   return (
     <h3>
-      <a href={`/teams/${userTeam.team.id}/schedule`}>{userTeam.team.fullname}</a>
+      <Link to={`/teams/${userTeam.team.id}/schedule`}>{userTeam.team.fullname}</Link>
     </h3>
   )
 }
