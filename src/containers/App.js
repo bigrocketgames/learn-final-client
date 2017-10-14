@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Router,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { Router, Route, Switch, NavLink } from 'react-router-dom';
 import history from '../history';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
@@ -38,6 +34,22 @@ class App extends Component {
     return(
       <Router history={history}>
         <div className="App">
+          {/* <nav className="navbar navbar-default navbar-static-top">
+            <div className="container">
+              <div className="navbar-header">
+                <NavLink to="/" className="navbar-brand">Team Schedules</NavLink>
+              </div>
+              <ul className="nav navbar-nav">
+                <li role="presentation">
+                  <NavLink to="/">Home</NavLink>
+                </li>
+                <SportsNav />
+              </ul>
+              <ul className="nav navbar-nav navbar-right">
+                {rightSideLinks}
+              </ul>
+            </div>
+          </nav> */}
           <Navbar staticTop>
             <Navbar.Header>
               <Navbar.Brand>
