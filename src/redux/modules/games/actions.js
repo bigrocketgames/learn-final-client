@@ -27,6 +27,13 @@ export const removeGameSuccess = (game) => {
   }
 }
 
+// export const updateGameSuccess = (game) => {
+//   return {
+//     type: 'UPDATE_GAME_SUCCESS',
+//     game: game
+//   }
+// }
+
 // Async actions - connect to Rails API
 
 export const getGames = () => {
