@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import EditGameForm from './forms/editGameForm';
-import { getTeams } from '../../redux/modules/teams/actions';
 
 class GameEdit extends Component {
-
-  componentDidMount(){
-    this.props.getTeams();
-  }
 
   render() {
     return(
@@ -25,4 +20,4 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-export default connect(mapStateToProps, {getTeams})(GameEdit)
+export default connect(mapStateToProps)(GameEdit)
