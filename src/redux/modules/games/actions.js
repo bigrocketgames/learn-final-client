@@ -27,12 +27,12 @@ export const removeGameSuccess = (game) => {
   }
 }
 
-// export const updateGameSuccess = (game) => {
-//   return {
-//     type: 'UPDATE_GAME_SUCCESS',
-//     game: game
-//   }
-// }
+export const updateGameSuccess = (game) => {
+  return {
+    type: 'UPDATE_GAME_SUCCESS',
+    game: game
+  }
+}
 
 // Async actions - connect to Rails API
 
@@ -88,8 +88,8 @@ export const updateGame = (gameDetails, gameId) => {
       body: JSON.stringify({game: gameDetails})
     })
       .then(response => response.json())
-      .then(games => {
-        dispatch(getGamesSuccess(games))
+      .then(game => {
+        dispatch(updateGameSuccess(game))
         dispatch(reset('editGame'));
         history.push("/admin/games")
       })
