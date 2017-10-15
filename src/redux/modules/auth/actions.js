@@ -81,7 +81,7 @@ export const login = (userDetails) => {
           }
           dispatch(setCurrentUser(body.user));
           dispatch(reset('login'));
-          history.push('/')
+          history.replace({ pathname: '/' })
         } else {
           dispatch(failedLogin());
           dispatch(reset('login'));
