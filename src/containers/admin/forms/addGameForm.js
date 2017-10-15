@@ -44,7 +44,7 @@ let AddGameForm = props => {
       <div>
         <label htmlFor="location">Game Location:</label>
         <Field name="location" component="input" type="text" placeholder="Seattle, WA"/>
-        <span>Only use this if game isn't played at home teams normal stadium</span>
+        <span className="formInputSpan">*Only use this box if game isn't played at the home team's normal stadium*</span>
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>
