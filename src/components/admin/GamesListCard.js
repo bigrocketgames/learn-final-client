@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import RemoveGameButton from '../../containers/admin/buttons/RemoveGameButton';
 
@@ -12,7 +13,7 @@ const GamesListCard = ({game}) => {
       <td>@</td>
       <td>{game.home_team.fullname}</td>
       <td>{game.location}</td>
-      <td><a href={`/admin/games/${game.id}/edit`}>Edit Game</a></td>
+      <td><Link to={{ pathname: `/admin/games/${game.id}/edit`, state: { gameId: game.id }}}>Edit Game</Link></td>
       <td><RemoveGameButton game={game}/></td>
     </tr>
   )
