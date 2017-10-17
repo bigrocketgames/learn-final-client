@@ -12,6 +12,20 @@ export const getSubSportsSuccess = subSports => {
   }
 }
 
+export const addSubSportSuccess = (subSport) => {
+  return {
+    type: 'ADD_SUB_SPORT_SUCCESS',
+    subSport: subSport
+  }
+}
+
+export const removeSubSportSuccess = (subSport) => {
+  return {
+    type: 'REMOVE_SUB_SPORT_SUCCESS',
+    subSportId: subSport.id
+  }
+}
+
 
 // Async actions - connect to Rails API
 
@@ -45,8 +59,8 @@ export const addSubSport = (subSportDetails) => {
       body: JSON.stringify({sub_sport: subSportDetails})
     })
       .then(response => response.json())
-      .then(subSports => {
-        dispatch(getSubSportsSuccess(subSports));
+      .then(subSport => {
+        dispatch(addSubSportSuccess(subSport));
         dispatch(reset('addSubSport'));
       })
       .catch(err => {
@@ -66,7 +80,7 @@ export const deleteSubSport = (subSportId) => {
       }
     })
       .then(response => response.json())
-      .then(subSports => dispatch(getSubSportsSuccess(subSports)))
+      .then(subSport => dispatch(removeSubSportSuccess(subSport)))
       .catch(error => console.log(error));
   }
 }
