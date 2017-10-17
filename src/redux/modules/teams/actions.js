@@ -12,6 +12,20 @@ export const getTeamsSuccess = teams => {
   }
 }
 
+export const addTeamSuccess = (team) => {
+  return {
+    type: 'ADD_TEAM_SUCCESS',
+    team: team
+  }
+}
+
+export const removeTeamSuccess = (team) => {
+  return {
+    type: 'REMOVE_TEAM_SUCCESS',
+    teamId: team.id
+  }
+}
+
 // Async actions - connect to Rails API
 
 export const getTeams = () => {
@@ -44,8 +58,8 @@ export const addTeam = (teamDetails) => {
       body: JSON.stringify({team: teamDetails})
     })
       .then(response => response.json())
-      .then(teams => {
-        dispatch(getTeamsSuccess(teams));
+      .then(team => {
+        dispatch(addTeamSuccess(team));
         dispatch(reset('addTeam'));
       })
       .catch(err => {
@@ -65,7 +79,7 @@ export const deleteTeam = (teamId) => {
       }
     })
       .then(response => response.json())
-      .then(teams => dispatch(getTeamsSuccess(teams)))
+      .then(team => dispatch(removeTeamSuccess(team)))
       .catch(error => console.log(error));
   }
 }
