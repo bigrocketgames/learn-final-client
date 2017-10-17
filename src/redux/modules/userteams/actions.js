@@ -9,6 +9,13 @@ export const getUserTeamsSuccess = userTeams => {
   }
 }
 
+export const updateUserTeamSuccess = (userTeam) => {
+  return {
+    type: 'UPDATE_USERTEAM_SUCCESS',
+    userTeam: userTeam
+  }
+}
+
 export const addUserTeam = (userTeamDetails) => {
   return dispatch => {
     return fetch(`${API_URL}/user_teams`, {
@@ -54,6 +61,22 @@ export const removeUserTeam = (userTeamID) => {
     })
       .then(response => response.json())
       .then(userTeams => dispatch(getUserTeamsSuccess(userTeams)))
+      .catch(error => console.log(error));
+  }
+}
+
+export const addLike = (userTeamId) => {
+  debugger
+  return dispatch => {
+    return fetch(`${API_URL}/user_teams/${userTeamId}/like`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => response.json())
+      .then(userTeam => dispatch(updateUserTeamSuccess(userTeam)))
       .catch(error => console.log(error));
   }
 }
