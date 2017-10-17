@@ -5,10 +5,24 @@ import { reset, SubmissionError } from 'redux-form';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-export const getSportsSuccess = sports => {
+export const getSportsSuccess = (sports) => {
   return {
     type: 'GET_SPORTS_SUCCESS',
     sports: sports
+  }
+}
+
+export const addSportSuccess = (sport) => {
+  return {
+    type: 'ADD_SPORT_SUCCESS',
+    sport: sport
+  }
+}
+
+export const removeSportSuccess = (sport) => {
+  return {
+    type: 'REMOVE_SPORT_SUCCESS',
+    sportId: sport.id
   }
 }
 
@@ -36,8 +50,8 @@ export const addSport = (sportDetails) => {
       body: JSON.stringify({sport: sportDetails})
     })
       .then(response => response.json())
-      .then(sports => {
-        dispatch(getSportsSuccess(sports));
+      .then(sport => {
+        dispatch(addSportSuccess(sport));
         dispatch(reset('addSport'));
       })
       .catch(err => {
@@ -57,7 +71,7 @@ export const deleteSport = (sportId) => {
       }
     })
       .then(response => response.json())
-      .then(sports => dispatch(getSportsSuccess(sports)))
+      .then(sport => dispatch(removeSportSuccess(sport)))
       .catch(error => console.log(error))
   }
 }
