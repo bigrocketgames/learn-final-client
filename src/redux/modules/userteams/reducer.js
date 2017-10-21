@@ -4,6 +4,7 @@ export default (state = [], action) => {
       return action.userTeams;
 
     case 'UPDATE_USERTEAM_SUCCESS':
+    debugger
       const index = state.findIndex(userTeam => userTeam.id === action.userTeam.id);
       return [
         ...state.slice(0, index),

@@ -2,7 +2,7 @@ import 'isomorphic-fetch';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-export const getUserTeamsSuccess = userTeams => {
+export const getUserTeamsSuccess = (userTeams) => {
   return{
     type: 'GET_USERTEAMS_SUCCESS',
     userTeams: userTeams
@@ -65,18 +65,18 @@ export const removeUserTeam = (userTeamID) => {
   }
 }
 
+
 export const addLike = (userTeamId) => {
-  debugger
   return dispatch => {
     return fetch(`${API_URL}/user_teams/${userTeamId}/like`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       }
     })
       .then(response => response.json())
       .then(userTeam => dispatch(updateUserTeamSuccess(userTeam)))
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
   }
 }
