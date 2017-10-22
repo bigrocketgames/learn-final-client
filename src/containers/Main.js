@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
-import history from '../history';
+import { Route, Switch } from 'react-router-dom';
 
 import SubSport from '../views/subSport';
 import Signup from '../views/signup';
@@ -15,7 +14,6 @@ class Main extends Component {
 
   render() {
     return(
-      <Router history={history}>
       <div className="App">
         <Switch>
           <Route exact path="/" component={Home} />
@@ -28,7 +26,6 @@ class Main extends Component {
           <Route component={NotFound} />
         </Switch>
       </div>
-      </Router>
     )
   }
 }
