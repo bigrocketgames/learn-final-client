@@ -1,9 +1,12 @@
 import React from 'react';
-import { MenuItem, NavDropdown } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 export const SubSportCardNav = ({subSport}) => {
   return (
-    <MenuItem eventKey={`3.x.${subSport.id}`} href={`/sub_sports/${subSport.id}`}>{subSport.name}</MenuItem>
+    <li role="presentation">
+      <NavLink role="menuitem" tabIndex="-1" to={`/sub_sports/${subSport.id}`}>{subSport.name} </NavLink>
+    </li>
   )
 }
 
@@ -17,7 +20,7 @@ const SportCardNav = ({sport}) => {
     )
   } else {
     return (
-      <MenuItem eventKey={`3.${sport.id}`} href={`/sport/${sport.id}`}>{sport.name}</MenuItem>
+      <NavLink eventKey={`3.${sport.id}`} to={`/sport/${sport.id}`}>{sport.name}</NavLink>
     )
   }
 }
