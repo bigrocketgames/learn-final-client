@@ -9,10 +9,10 @@ class UserTeamsCard extends Component {
   constructor(props){
     super(props)
 
-    this.clickLike = this.clickLike.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  clickLike(e) {
+  handleClick = (e) => {
     e.preventDefault();
     const userTeamID = Number(e.target.id);
     this.props.addLike(userTeamID);
@@ -26,17 +26,11 @@ class UserTeamsCard extends Component {
         <h3 className="userTeamLink">
           <Link to={`/teams/${userTeam.team.id}/schedule`}>{userTeam.team.fullname}</Link>
         </h3>
-        <Button id={userTeam.id} className="likeButton" bsSize="xsmall" bsStyle="primary" onClick={this.clickLike}>Like</Button>
+        <Button id={userTeam.id} className="likeButton" bsSize="xsmall" bsStyle="primary" onClick={this.handleClick}>Like</Button>
         <span>{userTeam.team.likes}</span>
       </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return ({
-    addLike: addLike
-  })
-}
-
-export default connect(null, mapDispatchToProps)(UserTeamsCard)
+export default connect(null, { addLike })(UserTeamsCard)
