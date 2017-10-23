@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import SportsNav from './SportsNav';
+import SubSportCardNav from '../components/SubSportCardNav';
+import { getSports } from '../redux/modules/sports/actions';
 
 class Header extends Component {
+
+  componentDidMount() {
+    this.props.getSports()
+  }
+
   render() {
     let rightSideLinks = null;
   
@@ -15,6 +21,7 @@ class Header extends Component {
     } else {
       rightSideLinks = <ul className="nav navbar-nav navbar-right"><li><NavLink to="/logout">Logout</NavLink></li></ul>
     }
+    
     return(
       <nav className="navbar navbar-default navbar-static-top">
         <div className="container">
@@ -25,7 +32,7 @@ class Header extends Component {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
-          <SportsNav />
+          {this.props.sports.map(sport => sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />))}
         </ul>
           {rightSideLinks}
         </div>
@@ -35,8 +42,11 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {auth: state.auth}
+  return ({
+    auth: state.auth,
+    sports: state.sports
+  });
 }
 
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, { getSports })(Header)
