@@ -28,12 +28,15 @@ const reducers = combineReducers({
 
 const middleware = [thunk]
 
+const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ({}) : compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(...middleware),
+)
+
 const store = createStore(
-  reducers, persistedState,
-  compose (
-    applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  reducers, 
+  enhancer
 )
 
 store.subscribe(() => {
