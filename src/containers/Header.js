@@ -32,7 +32,7 @@ class Header extends Component {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
-          {this.props.sports.map(sport => sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />))}
+          {this.props.sports.length > 0 && this.props.sports.map(sport => sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />))}
         </ul>
           {rightSideLinks}
         </div>
