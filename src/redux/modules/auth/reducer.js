@@ -16,6 +16,7 @@ const auth = (state = initialState, action) => {
 
     case 'AUTHENTICATION_SUCCESS':
       return {
+        ...state,
         isAuthenticated: true,
         isAuthenticating: false,
         currentUser: action.user,
@@ -30,6 +31,7 @@ const auth = (state = initialState, action) => {
     
     case 'LOGOUT_USER':
       return {
+        ...state,
         isAuthenticated: false,
         isAuthenticating: true,
         currentUser: {},
