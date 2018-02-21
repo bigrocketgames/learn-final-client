@@ -24,7 +24,6 @@ class Header extends Component {
     
     return(
       <nav className="navbar navbar-default navbar-static-top">
-        <div className="container">
         <div className="navbar-header">
             <Link className="navbar-brand" to="/">Team Schedules</Link>
         </div>
@@ -35,7 +34,6 @@ class Header extends Component {
           {this.props.sports.length > 0 && this.props.sports.map(sport => sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />))}
         </ul>
           {rightSideLinks}
-        </div>
       </nav>
     )
   }
