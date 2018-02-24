@@ -13,10 +13,11 @@ class Header extends Component {
 
   render() {
     let rightSideLinks = null;
+    const { auth, sports } = this.props;
   
-    if (!this.props.auth.isAuthenticated) {
+    if (!auth.isAuthenticated) {
       rightSideLinks = <ul className="nav navbar-nav navbar-right"><li><NavLink to="/signup">Signup</NavLink></li><li><NavLink to="/login">Login</NavLink></li></ul>
-    } else if (this.props.auth.currentUser.admin) {
+    } else if (auth.currentUser.admin) {
       rightSideLinks = <ul className="nav navbar-nav navbar-right"><li><NavLink to="/logout">Logout</NavLink></li><li><NavLink to="/admin">Admin</NavLink></li></ul>
     } else {
       rightSideLinks = <ul className="nav navbar-nav navbar-right"><li><NavLink to="/logout">Logout</NavLink></li></ul>
@@ -31,7 +32,7 @@ class Header extends Component {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
-          {this.props.sports.length > 0 && this.props.sports.map(sport => sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />))}
+          { sports.length > 0 && sports.map(sport => sport.sub_sports.map(subSport => <SubSportCardNav key={subSport.id} subSport={subSport} />))}
         </ul>
           {rightSideLinks}
       </nav>
