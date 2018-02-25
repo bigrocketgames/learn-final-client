@@ -35,7 +35,11 @@ class SubSportsList extends Component {
         </div>
       )
     } else {
-      return null
+      return (
+        <div>
+          <AddSubSportForm />
+        </div>
+      )
     }
   }
 }
