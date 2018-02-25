@@ -5,7 +5,6 @@ export default (state = [], action) => {
       return action.subSports;
 
     case 'ADD_SUB_SPORT_SUCCESS':
-      debugger
       const subSport = Object.assign({}, action.subSport);
       return state.concat(subSport);
 
