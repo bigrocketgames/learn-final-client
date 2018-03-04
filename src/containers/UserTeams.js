@@ -13,9 +13,11 @@ class UserTeams extends Component {
   }
 
   render() {
+    const { userTeams } = this.props
+
     return (
       <div>
-        {this.props.userTeams.map(userTeam => <UserTeamsCard key={userTeam.id} userTeam={userTeam} />)}
+        {userTeams.length > 0 && userTeams.map(userTeam => <UserTeamsCard key={userTeam.id} userTeam={userTeam} />)}
       </div>
     )
   }
