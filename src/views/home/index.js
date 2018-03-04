@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import UserTeams from '../../containers/UserTeams';
@@ -14,7 +15,7 @@ class Home extends Component {
           <UserTeams />
           </div>
     } else {
-      pageHeader = <div><h1 className="text-center">Team Schedules</h1><p className="text-center"><a href="/login">Login</a> or <a href="/signup">Signup</a> to find out when your favorite team plays</p><hr /></div>
+      pageHeader = <div><h1 className="text-center">Team Schedules</h1><p className="text-center"><Link to={"/login"}>Login</Link> or <Link to={"/signup"}>Signup</Link> to find out when your favorite team plays</p><hr /></div>
     }
 
     return (
