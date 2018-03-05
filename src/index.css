@@ -51,6 +51,12 @@ label {
   background-color: red;
 }
 
+.ERROR a {
+  color: blue;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .userTeamLink {
   display: inline-block;
 }
