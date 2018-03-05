@@ -43,17 +43,14 @@ class SubSportTeamsList extends Component {
   }
 
   render() {
-    const team = this.props.team
+    const {team, userTeams} = this.props
     let favoriteButton = null;
 
-    if (team) {
-      let arraylength = this.props.userTeams.length
-      for (var i=0; i<arraylength; i++) {
-        if (this.props.userTeams[i].team.id === team.id){
-          favoriteButton = <Button bsSize="small" onClick={this.removeFavorite} id={this.props.userTeams[i].id} ><Glyphicon glyph="minus" /></Button>
-        }
-      }
-      if (favoriteButton === null) {
+    if (team && this.props.user.id) {
+      const userTeam = userTeams.find(userTeam => userTeam.team.id === team.id)
+      if (userTeam){
+        favoriteButton = <Button bsSize="small" onClick={this.removeFavorite} id={userTeam.id} ><Glyphicon glyph="minus" /></Button>
+      } else {
         favoriteButton = <Button bsSize="small" onClick={this.addFavorite} id={team.id}><Glyphicon glyph="plus" /></Button>
       }
     }
@@ -62,7 +59,7 @@ class SubSportTeamsList extends Component {
       <tr>
         <td>{team.fullname}</td>
         <td><Link to={`/teams/${team.id}/schedule`}>See {team.fullname} Schedule</Link></td>
-        <td>{favoriteButton}</td>
+        <td>{favoriteButton} <span>{team.fans === 1 ? `${team.fans} fan` : `${team.fans} fans`}</span></td>
       </tr>
     )
   }
