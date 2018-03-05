@@ -9,7 +9,9 @@ import { getUserTeams } from '../redux/modules/userteams/actions';
 class SubSports extends Component {
   
   componentWillMount() {
-    this.props.getUserTeams();
+    if (this.props.user.id) {
+      this.props.getUserTeams();
+    }
     this.props.getSubSport(this.props.match_url);
   }
 
@@ -21,15 +23,16 @@ class SubSports extends Component {
 
   render() {
     return(
-        <SubSportsCard subSport={this.props.sub_sports} />
+        <SubSportsCard subSport={this.props.sub_sports} user={this.props.user} />
     )
   }
 }
 
 const MapStateToProps = (state) => {
-  return({
+  return{
+    user: state.auth.currentUser,
     sub_sports: state.subSports
-  })
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
