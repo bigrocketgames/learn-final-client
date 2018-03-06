@@ -16,6 +16,7 @@ class TeamsList extends Component {
   }
 
   render() {
+    const { teams } = this.props
     return (
       <div>
         <h2 className="text-center">Teams List</h2>
@@ -29,11 +30,11 @@ class TeamsList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.teams.map(team => <TeamsListCard key={team.id} team={team} />)}
+            {teams.length > 0 && teams.map(team => <TeamsListCard key={team.id} team={team} />)}
           </tbody>
         </Table>
 
-        <AddTeamForm />
+        {this.props.subSports.length > 0 && <AddTeamForm />}
       </div>
     )
   }
@@ -41,7 +42,8 @@ class TeamsList extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    teams: state.teams
+    teams: state.teams,
+    subSports: state.subSports
   })
 }
 
