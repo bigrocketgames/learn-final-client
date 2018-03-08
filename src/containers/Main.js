@@ -8,6 +8,7 @@ import Login from '../views/login';
 import Logout from '../views/logout';
 import Admin from '../views/admin';
 import Schedule from '../views/schedule';
+import ChatRoom from '../views/chatRoom';
 import NotFound from '../views/404';
 
 class Main extends Component {
@@ -22,6 +23,7 @@ class Main extends Component {
           <Route exact path="/logout" component={Logout} />
           <Route exact path="/sub_sports/:id(\d+)" component={SubSport} />
           <Route exact path="/teams/:id(\d+)/schedule" component={Schedule} />
+          <Route exact path="/chat_rooms/:id(\d+)" component={ChatRoom} />
           <Route path="/admin" component={Admin} />
           <Route component={NotFound} />
         </Switch>
