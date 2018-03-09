@@ -17,12 +17,9 @@ class ChatRoom extends Component {
 
   handleReceivedMessage = response => {
     const { message } = response;
-    this.setState = (state) => {
-      return (
-        [...this.state.messages],
-        message
-      )
-    }
+    this.setState ({
+      messages: [...this.state.messages, message]
+    })
   }
 
   componentDidMount() {
@@ -36,6 +33,7 @@ class ChatRoom extends Component {
     const { chatRoom } = this.props.chatRoom
     const { user } = this.props
     const { messages } = this.state
+    console.log(messages)
 
     return(
       <div className="container">
@@ -48,9 +46,9 @@ class ChatRoom extends Component {
 
         <p>{ chatRoom && chatRoom.roomName}</p>
         <div className="messagesContainer">
-          {messages.length && messages.map(message => <MessageCard key={message.id} message={message} />)}
+          {messages.length > 0 ? messages.map(message => <MessageCard key={message.id} message={message} />) : null}
         </div>
-        { (user && chatRoom) ? <NewMessageForm initialValues={{user_id: user.id, chatRoom_id: chatRoom.id}}/> : null}
+        { (user && chatRoom) ? <NewMessageForm initialValues={{user_id: user.id, chat_room_id: chatRoom.id}}/> : null}
       </div>
     )
   }
