@@ -79,7 +79,6 @@ label {
   overflow: scroll;
   background: white;
   color: black;
-  padding-left: 10px;
   margin-bottom: 10px;
 }
 
@@ -91,4 +90,14 @@ label {
 
 .newMessageForm textarea {
   width: 100%;
+}
+
+.messageContent {
+  margin-bottom: 1px;
+}
+
+.message {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 10px;
 }
