@@ -15,6 +15,10 @@ class ChatRoom extends Component {
     }
   }
 
+  scrollToBottom() {
+    this.messagesEnd.scrollIntoView({behavior: "smooth"});
+  }
+
   handleReceivedMessage = response => {
     const { message } = response;
     this.setState ({
@@ -27,13 +31,19 @@ class ChatRoom extends Component {
       .then(data => this.setState({
         messages: data.chatRoom.messages
       }))
+    this.scrollToBottom()
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom()
   }
 
   render() {
     const { chatRoom } = this.props.chatRoom
     const { user } = this.props
     const { messages } = this.state
-    console.log(messages)
+
+    
 
     return(
       <div className="container">
@@ -44,9 +54,10 @@ class ChatRoom extends Component {
         />
         }
 
-        <p>{ chatRoom && chatRoom.roomName}</p>
+        <h2 className="text-center">{ chatRoom && chatRoom.roomName}</h2>
         <div className="messagesContainer">
           {messages.length > 0 ? messages.map(message => <MessageCard key={message.id} message={message} />) : null}
+          <div ref={(el) => { this.messagesEnd = el; }}></div>
         </div>
         { (user && chatRoom) ? <NewMessageForm initialValues={{user_id: user.id, chat_room_id: chatRoom.id}}/> : null}
       </div>
