@@ -1,2 +1,1 @@
-Need to configure history settings for redirects and other possible uses.
-
+Look into error that is triggered when going from schedule to admin/games.
