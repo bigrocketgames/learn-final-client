@@ -70,3 +70,34 @@ label {
 .navbar-right {
   margin-right: 15px;
 }
+
+.messagesContainer {
+  max-width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 500px;
+  overflow: scroll;
+  background: white;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.newMessageForm {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.newMessageForm textarea {
+  width: 100%;
+}
+
+.messageContent {
+  margin-bottom: 1px;
+}
+
+.message {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 10px;
+}

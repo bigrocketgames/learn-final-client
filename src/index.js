@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ActionCableProvider } from 'react-actioncable-provider';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
@@ -14,7 +15,9 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <App />
+      <ActionCableProvider url={process.env.REACT_APP_WS_ROOT}>
+        <App />
+      </ActionCableProvider>
     </Router>
   </Provider>, 
   document.getElementById('root')

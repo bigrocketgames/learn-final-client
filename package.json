@@ -6,7 +6,8 @@
     "aphrodite": "^1.2.3",
     "create-react-app": "^1.4.1",
     "isomorphic-fetch": "^2.2.1",
-    "react": "^16.0.0",
+    "react": "^16.2.0",
+    "react-actioncable-provider": "^1.0.3",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
@@ -20,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "yarn build"
   },
   "main": "index.js",
   "repository": "git@github.com:bigrocketgames/learn-final-client.git",
