@@ -19,7 +19,7 @@ let AddGameForm = props => {
         <label htmlFor="away_team_id">Away Team: </label>
         <Field name="away_team_id" component="select">
           <option value="">Away Team:</option>
-          {props.teams.map(team => 
+          {props.teams.length > 0 && props.teams.map(team => 
             <option value={team.id} key={team.id}>
               {team.fullname}
             </option>
@@ -30,7 +30,7 @@ let AddGameForm = props => {
         <label htmlFor="home_team_id">Home Team: </label>
         <Field name="home_team_id" component="select">
           <option value="">Home Team:</option>
-          {props.teams.map(team => 
+          {props.teams.length > 0 && props.teams.map(team => 
             <option value={team.id} key={team.id}>
               {team.fullname}
             </option>

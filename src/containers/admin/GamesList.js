@@ -33,7 +33,7 @@ class GamesList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.games.map(game => <GamesListCard key={game.id} game={game} />)}
+            {this.props.games.length > 0 && this.props.games.map(game => <GamesListCard key={game.id} game={game} />)}
           </tbody>
         </Table>
         <AddGameForm />
