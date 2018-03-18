@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "yarn build && yarn global add serve && serve -s build"
   },
   "main": "index.js",
   "repository": "git@github.com:bigrocketgames/learn-final-client.git",
