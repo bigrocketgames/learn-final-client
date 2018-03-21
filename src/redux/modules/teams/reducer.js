@@ -6,7 +6,6 @@ export default (state = [], action) => {
       } else {
         return [action.teams];
       }
-      return action.teams;
 
     case 'ADD_TEAM_SUCCESS':
       const team = Object.assign({}, action.team);
