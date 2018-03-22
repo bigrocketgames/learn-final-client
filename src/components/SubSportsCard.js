@@ -11,6 +11,7 @@ const SubSportsCard = ({subSport, user}) => {
   }
   if (subSport.teams !== undefined) {
     if (subSport.teams.length > 0) {
+      
       const teams = subSport.teams.sort(function(a, b) {
         if (a.fullname > b.fullname) {
           return 1;
@@ -21,7 +22,6 @@ const SubSportsCard = ({subSport, user}) => {
         }
       });
 
-      console.log(teams)
       return (
         <div className="container">
           <h2 className="text-center">{subSport.name} TEAMS</h2>
