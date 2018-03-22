@@ -15,6 +15,7 @@ class SubSports extends Component {
     this.props.getSubSport(this.props.match_url);
   }
 
+  // making sure that every time a different subSport is clicked, the new subSport is attempted to be fetched.
   componentWillReceiveProps(nextProps) {
     if (nextProps.match_url !== this.props.match_url) {
       this.props.getSubSport(nextProps.match_url);
