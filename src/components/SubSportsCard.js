@@ -11,6 +11,17 @@ const SubSportsCard = ({subSport, user}) => {
   }
   if (subSport.teams !== undefined) {
     if (subSport.teams.length > 0) {
+      const teams = subSport.teams.sort(function(a, b) {
+        if (a.fullname > b.fullname) {
+          return 1;
+        }else if (a.fullname < b.fullname) {
+          return -1;
+        }else {
+          return 0;
+        }
+      });
+
+      console.log(teams)
       return (
         <div className="container">
           <h2 className="text-center">{subSport.name} TEAMS</h2>
@@ -24,7 +35,7 @@ const SubSportsCard = ({subSport, user}) => {
               </tr>
             </thead>
             <tbody>
-              {subSport.teams.map(team => <SubSportTeamsList key={team.id} team={team} />)}
+              {teams.map(team => <SubSportTeamsList key={team.id} team={team} />)}
             </tbody>
           </Table>
         </div>
