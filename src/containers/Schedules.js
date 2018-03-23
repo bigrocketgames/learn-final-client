@@ -26,6 +26,7 @@ class Schedules extends Component {
               <th></th>
               <th>Home Team</th>
               <th>Location</th>
+              <th>Chat Room</th>
             </tr>
           </thead>
           <tbody>

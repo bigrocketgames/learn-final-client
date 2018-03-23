@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const ScheduleCard = (schedule) => {
   const game_time = new Date(schedule.game.game_time);
@@ -10,6 +12,7 @@ const ScheduleCard = (schedule) => {
       <td>@</td>
       <td>{schedule.game.home_team.fullname}</td>
       <td>{schedule.game.location}</td>
+      <td>Link to Chat room</td>
     </tr>
   )
 }
