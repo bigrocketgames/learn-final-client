@@ -12,10 +12,12 @@ import store from './redux/store';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
+const WS_URL = process.env.REACT_APP_WS_ROOT;
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <ActionCableProvider url={process.env.REACT_APP_WS_ROOT}>
+      <ActionCableProvider url={WS_URL}>
         <App />
       </ActionCableProvider>
     </Router>
