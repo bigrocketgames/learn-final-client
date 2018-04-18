@@ -18,7 +18,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <ActionCableProvider url={WS_URL}>
-        {console.log(WS_URL)}
         <App />
       </ActionCableProvider>
     </Router>
