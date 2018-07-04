@@ -7,12 +7,8 @@ import NewMessageForm from './forms/NewMessageForm';
 import { GetChatRoom } from '../redux/modules/chatrooms/actions';
 
 class ChatRoom extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      messages: []
-    }
+  state = {
+    messages: []
   }
 
   scrollToBottom() {

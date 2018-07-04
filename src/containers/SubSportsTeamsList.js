@@ -7,14 +7,8 @@ import { bindActionCreators } from 'redux';
 import { addUserTeam, removeUserTeam } from '../redux/modules/userteams/actions';
 
 class SubSportTeamsList extends Component {
-  constructor(props) {
-    super(props)
 
-    this.addFavorite = this.addFavorite.bind(this);
-    this.removeFavorite = this.removeFavorite.bind(this)
-  }
-
-  addFavorite(e) {
+  addFavorite = (e) => {
     if (e.target.localName === "span") {
       const userTeamDetails = { 
         user_id: this.props.user.id,
@@ -30,7 +24,7 @@ class SubSportTeamsList extends Component {
     }
   }
 
-  removeFavorite(e) {
+  removeFavorite = (e) => {
     if (e.target.localName === "span") {
       const userTeamID = Number(e.target.parentElement.id)
       this.props.removeUserTeam(userTeamID);
