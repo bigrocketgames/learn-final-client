@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import RemoveGameButton from '../../containers/admin/buttons/RemoveGameButton';
+import ButtonComp from '../../containers/ButtonComp';
 
-const GamesListCard = ({game}) => {
+const GamesListCard = ({game}, props) => {
   const game_time = new Date(game.game_time);
   const options = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'}
   return(
@@ -14,7 +14,7 @@ const GamesListCard = ({game}) => {
       <td>{game.home_team.fullname}</td>
       <td>{game.location}</td>
       <td><Link to={{ pathname: `/admin/games/${game.id}/edit`, state: { gameId: game.id }}}>Edit Game</Link></td>
-      <td><RemoveGameButton game={game}/></td>
+      <td><ButtonComp btnSize={"small"} btnStyle={"danger"} id={game.id} label={"Delete Game"} handleClick={props.handleClick} /></td>
     </tr>
   )
 }
