@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 
-import { getGames } from '../../redux/modules/games/actions';
+import { getGames, deleteGame } from '../../redux/modules/games/actions';
 import { getTeams } from 
 '../../redux/modules/teams/actions';
 import GamesListCard from '../../components/admin/GamesListCard';
@@ -14,6 +14,10 @@ class GamesList extends Component {
   componentDidMount(){
     this.props.getGames();
     this.props.getTeams();
+  }
+
+  deleteGame = (e) => {
+    this.props.deleteGame(e.target.id);
   }
 
   render(){
@@ -33,7 +37,7 @@ class GamesList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.games.length > 0 && this.props.games.map(game => <GamesListCard key={game.id} game={game} />)}
+            {this.props.games.length > 0 && this.props.games.map(game => <GamesListCard key={game.id} game={game} handleClick={this.deleteGame} />)}
           </tbody>
         </Table>
         <AddGameForm />
@@ -51,7 +55,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     getGames: getGames,
-    getTeams: getTeams
+    getTeams: getTeams,
+    deleteGame: deleteGame
   }, dispatch)
 }
 
