@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
 
 import SportsListCard from '../../components/admin/SportsListCard';
-import { getSports } from '../../redux/modules/sports/actions';
+import { getSports, deleteSport } from '../../redux/modules/sports/actions';
 import AddSportForm from './forms/addSportForm';
 
 class SportsList extends Component {
 
   componentDidMount() {
     this.props.getSports()
+  }
+
+  deleteSport = (e) => {
+    const sportId = Number(e.target.id)
+    this.props.deleteSport(sportId);
   }
 
   render() {
@@ -24,7 +30,7 @@ class SportsList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.sports.map(sport => <SportsListCard key={sport.id} sport={sport} />)}
+            {this.props.sports.map(sport => <SportsListCard key={sport.id} sport={sport} handleClick={this.deleteSport} />)}
           </tbody>
         </Table>
         <AddSportForm />
@@ -39,4 +45,11 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, {getSports})(SportsList);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getSports: getSports,
+    deleteSport: deleteSport
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SportsList);

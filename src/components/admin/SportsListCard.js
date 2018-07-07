@@ -1,11 +1,11 @@
 import React from 'react';
 
-import SportsDeleteButton from '../../containers/admin/buttons/SportsDeleteButton';
+import ButtonComp from '../../containers/ButtonComp';
 
-const SportsListCard = ({sport}) => (
+const SportsListCard = (props) => (
   <tr>
-    <td>{sport.name}</td>
-    <SportsDeleteButton sport={sport} />
+    <td>{props.sport.name}</td>
+    <td><ButtonComp btnSize="small" btnStyle="danger" handleClick={props.handleClick} id={props.sport.id} label={`Delete ${props.sport.name}`} /></td>
   </tr>
 )
 
