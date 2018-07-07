@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 import ButtonComp from '../../containers/ButtonComp';
 
-const GamesListCard = ({game}, props) => {
+const GamesListCard = (props) => {
+  const {game} = props
   const game_time = new Date(game.game_time);
   const options = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'}
   return(
