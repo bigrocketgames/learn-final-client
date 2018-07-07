@@ -1,14 +1,17 @@
 import React from 'react';
 
-import RemoveTeamButton from '../../containers/admin/buttons/RemoveTeamButton';
+import ButtonComp from '../../containers/ButtonComp';
 
-const TeamsListCard = ({team}) => (
-  <tr>
-    <td>{team.fullname}</td>
-    <td>{team.stadium_location}</td>
-    <td>{team.sub_sport.name}</td>
-    <td><RemoveTeamButton team={team} /></td>
-  </tr>
-)
+const TeamsListCard = (props) => {
+  const {team} = props
+  return (
+    <tr>
+      <td>{team.fullname}</td>
+      <td>{team.stadium_location}</td>
+      <td>{team.sub_sport.name}</td>
+      <td><ButtonComp btnSize="small" btnStyle="danger" id={team.id} handleClick={props.handleClick} label={`Delete ${team.fullname}`} /></td>
+    </tr>
+  )
+}
 
 export default TeamsListCard;

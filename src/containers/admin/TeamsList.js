@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import TeamsListCard from '../../components/admin/TeamsListCard';
 import AddTeamForm from './forms/addTeamForm';
-import { getTeams } from '../../redux/modules/teams/actions';
+import { getTeams, deleteTeam } from '../../redux/modules/teams/actions';
 import { getSubSports } from '../../redux/modules/subsports/actions';
 
 class TeamsList extends Component {
@@ -13,6 +13,10 @@ class TeamsList extends Component {
   componentDidMount() {
     this.props.getSubSports();
     this.props.getTeams();
+  }
+
+  removeTeam = (e) => {
+    this.props.deleteTeam(e.target.id);
   }
 
   render() {
@@ -30,7 +34,7 @@ class TeamsList extends Component {
             </tr>
           </thead>
           <tbody>
-            {teams.length > 0 && teams.map(team => <TeamsListCard key={team.id} team={team} />)}
+            {teams.length > 0 && teams.map(team => <TeamsListCard key={team.id} team={team} handleClick={this.removeTeam}/>)}
           </tbody>
         </Table>
 
@@ -50,6 +54,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     getTeams: getTeams,
+    deleteTeam: deleteTeam,
     getSubSports: getSubSports
   }, dispatch);
 }
