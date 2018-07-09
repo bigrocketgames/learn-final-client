@@ -3,12 +3,25 @@ import { connect } from 'react-redux';
 import { Table } from 'react-bootstrap';
 
 import UsersListCard from '../../components/admin/UsersListCard';
-import { getUsers } from '../../redux/modules/users/actions';
+import { getUsers, upgradeUser, downgradeUser, RemoveUser } from '../../redux/modules/users/actions';
+import { bindActionCreators } from 'redux';
 
 class UsersList extends Component {
 
   componentDidMount() {
     this.props.getUsers();
+  }
+
+  upgradeUser = (e) => {
+    this.props.upgradeUser(this.props.user.id);
+  }
+
+  downgradeUser = (e) => {
+    this.props.downgradeUser(this.props.user.id);
+  }
+
+  deleteUser = (e) => {
+    this.props.RemoveUser(e.target.id);
   }
 
   render() {
@@ -25,7 +38,7 @@ class UsersList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.users.map(user => <UsersListCard key={user.id} user={user} />)}
+            {this.props.users.map(user => <UsersListCard key={user.id} user={user} upgradeUser={this.upgradeUser} downgradeUser={this.downgradeUser} deleteUser={this.deleteUser} />)}
           </tbody>
         </Table>
       </div>
@@ -39,4 +52,13 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, {getUsers})(UsersList);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getUsers: getUsers,
+    upgradeUser: upgradeUser,
+    downgradeUser: downgradeUser,
+    RemoveUser: RemoveUser
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersList);
