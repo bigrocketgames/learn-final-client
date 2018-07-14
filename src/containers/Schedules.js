@@ -17,7 +17,8 @@ class Schedules extends Component {
   render() {
     return (
       <div className="container">
-        <h3 className="text-center">{this.props.team.fullname} Schedule</h3>
+        <h3 className="text-center">{this.props.team[0] ? this.props.team[0].fullname : null} Schedule</h3>
+        <h5 className="text-center">Game chat will be available 6 days prior to and end 1 day after the scheduled start time of the contest.</h5>
         <Table bordered striped condensed>
           <thead>
             <tr>
