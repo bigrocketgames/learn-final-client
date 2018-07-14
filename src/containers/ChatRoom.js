@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ActionCable } from 'react-actioncable-provider';
+import { Link } from 'react-router-dom';
 
 import MessageCard from '../components/MessageCard';
 import NewMessageForm from './forms/NewMessageForm';
@@ -38,8 +39,10 @@ class ChatRoom extends Component {
     const { chatRoom } = this.props.chatRoom
     const { user } = this.props
     const { messages } = this.state
-
-    
+    let userReminder = null
+    if (!user.id) {
+      userReminder = <div><p className="text-center ERROR"><Link to={`/login`}>Login</Link> or <Link to={"/signup"}>Signup</Link> to chat during your favorite team's game!</p></div>
+    }
 
     return(
       <div className="container">
@@ -55,7 +58,7 @@ class ChatRoom extends Component {
           {messages.length > 0 ? messages.map(message => <MessageCard key={message.id} message={message} />) : null}
           <div ref={(el) => { this.messagesEnd = el; }}></div>
         </div>
-        { (user && chatRoom) ? <NewMessageForm initialValues={{user_id: user.id, chat_room_id: chatRoom.id}}/> : null}
+        { (user.id && chatRoom) ? <NewMessageForm initialValues={{user_id: user.id, chat_room_id: chatRoom.id}}/> : userReminder}
       </div>
     )
   }
