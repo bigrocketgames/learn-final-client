@@ -15,7 +15,7 @@ class Schedules extends Component {
   }
   
   render() {
-    let filteredSchedule;
+    let filteredSchedule, seasonYear;
     const currentMonth = new Date(Date.now()).getMonth();
     const currentYear = new Date(Date.now()).getFullYear();
     const prevYear = currentYear - 1;
@@ -25,21 +25,24 @@ class Schedules extends Component {
         filteredSchedule = this.props.schedule.filter( game => {
           return game.season.year === currentYear.toString();
         })
+        seasonYear = this.props.seasons.length > 0 && this.props.seasons.filter(season => season.year === currentYear.toString())[0].alt_display
       } else {
         filteredSchedule = this.props.schedule.filter( game => {
           return game.season.year === prevYear.toString();
         })
+        seasonYear = this.props.seasons.length > 0 && this.props.seasons.filter(season => season.year === prevYear.toString())[0].alt_display
       }
     } else if (this.props.team[0] && !this.props.team[0].sub_sport.alt_season_display) {
       filteredSchedule = this.props.schedule.filter( game => {
         return game.season.year === currentYear.toString();
       })
+      seasonYear = this.props.seasons.length > 0 && this.props.seasons.filter(season => season.year === currentYear.toString())[0].year
     }
     
 
     return (
       <div className="container">
-        <h3 className="text-center">{this.props.team[0] ? this.props.team[0].fullname : null} Schedule</h3>
+        <h3 className="text-center">{this.props.team[0] ? this.props.team[0].fullname : null} {`${seasonYear}`} Schedule</h3>
         <h5 className="text-center">Game chat will be available 6 days prior to and end 1 day after the scheduled start time of the contest.</h5>
         <Table bordered striped condensed>
           <thead>
@@ -64,7 +67,8 @@ class Schedules extends Component {
 const mapStateToProps = (state) => {
   return ({
     schedule: state.schedules,
-    team: state.teams
+    team: state.teams,
+    seasons: state.seasons
   })
 }
 
