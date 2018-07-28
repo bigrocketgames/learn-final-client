@@ -42,6 +42,17 @@ let AddGameForm = props => {
         <Field name="game_time" component="input" type="text" placeholder="2017-09-10 20:00"/>
       </div>
       <div>
+        <label htmlFor="season_id">Season: </label>
+        <Field name="season_id" component="select">
+          <option value="">Season:</option>
+          {props.seasons.length > 0 && props.seasons.map(season => 
+            <option value={season.id} key={season.id}>
+              {season.year}
+            </option>
+          )}
+        </Field>
+      </div>
+      <div>
         <label htmlFor="location">Game Location:</label>
         <Field name="location" component="input" type="text" placeholder="Seattle, WA"/>
         <span className="formInputSpan">*Only use this box if game isn't played at the home team's normal stadium*</span>
@@ -64,6 +75,7 @@ AddGameForm = reduxForm({
 
 AddGameForm = connect(
   state => ({
+    seasons: state.seasons,
     teams: state.teams
   })
 )(AddGameForm)
