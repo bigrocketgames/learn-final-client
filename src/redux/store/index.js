@@ -11,6 +11,7 @@ import schedules from '../modules/schedule/reducer';
 import userTeams from '../modules/userteams/reducer';
 import games from '../modules/games/reducer';
 import chatRooms from '../modules/chatrooms/reducer';
+import seasons from '../modules/seasons/reducer';
 import { loadState, saveState } from './localStorage';
 
 const persistedState = loadState();
@@ -25,7 +26,8 @@ const reducers = combineReducers({
   schedules,
   userTeams,
   games,
-  chatRooms
+  chatRooms,
+  seasons
 })
 
 const middleware = [thunk]

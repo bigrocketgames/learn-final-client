@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import SubSportCardNav from '../components/SubSportCardNav';
 import { getSports } from '../redux/modules/sports/actions';
+import { getSeasons } from '../redux/modules/seasons/actions';
 
 class Header extends Component {
 
   componentDidMount() {
     this.props.getSports()
+    this.props.getSeasons()
   }
 
   render() {
@@ -47,5 +50,12 @@ const mapStateToProps = (state) => {
   });
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getSports,
+    getSeasons
+  }, dispatch)
+}
 
-export default connect(mapStateToProps, { getSports })(Header)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

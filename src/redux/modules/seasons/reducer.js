@@ -1,10 +1,9 @@
 export default (state = [], action) => {
   switch(action.type) {
-
-    case 'GET_SCHEDULE_SUCCESS':
-      return [...action.schedule];
+    case 'GET_SEASONS_SUCCESS':
+      return [...action.seasons]
 
     default:
       return state;
-  } 
+  }
 }
