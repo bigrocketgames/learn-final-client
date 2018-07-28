@@ -1,7 +1,7 @@
 export default (state = [], action) => {
   switch(action.type) {
     case 'GET_TEAMS_SUCCESS':
-      return [...action.teams];
+      return Array.isArray(action.teams) ? action.teams : [action.teams];
 
     case 'ADD_TEAM_SUCCESS':
       const team = Object.assign({}, action.team);
