@@ -2,7 +2,7 @@ export default (state = [], action) => {
   switch(action.type) {
     
     case 'GET_SPORTS_SUCCESS':
-      return action.sports;
+      return [...action.sports];
 
     case 'ADD_SPORT_SUCCESS':
       const sport = Object.assign({}, action.sport);
