@@ -22,7 +22,6 @@ class Schedules extends Component {
 
     if (this.props.team[0] && this.props.team[0].sub_sport.alt_season_display) {
       if (currentMonth > 5) {
-        console.log("I am in the right spot")
         filteredSchedule = this.props.schedule.filter( game => {
           return game.season.year === currentYear.toString();
         })
