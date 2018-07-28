@@ -15,6 +15,29 @@ class Schedules extends Component {
   }
   
   render() {
+    let filteredSchedule;
+    const currentMonth = new Date(Date.now()).getMonth();
+    const currentYear = new Date(Date.now()).getFullYear();
+    const prevYear = currentYear - 1;
+
+    if (this.props.team[0] && this.props.team[0].sub_sport.alt_season_display) {
+      if (currentMonth > 5) {
+        console.log("I am in the right spot")
+        filteredSchedule = this.props.schedule.filter( game => {
+          return game.season.year === currentYear.toString();
+        })
+      } else {
+        filteredSchedule = this.props.schedule.filter( game => {
+          return game.season.year === prevYear.toString();
+        })
+      }
+    } else if (this.props.team[0] && !this.props.team[0].sub_sport.alt_season_display) {
+      filteredSchedule = this.props.schedule.filter( game => {
+        return game.season.year === currentYear.toString();
+      })
+    }
+    
+
     return (
       <div className="container">
         <h3 className="text-center">{this.props.team[0] ? this.props.team[0].fullname : null} Schedule</h3>
@@ -31,7 +54,7 @@ class Schedules extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.schedule.map(game => <ScheduleCard key={game.id} game={game} />)}
+            {filteredSchedule && filteredSchedule.map(game => <ScheduleCard key={game.id} game={game} />)}
           </tbody>
         </Table>
       </div>
