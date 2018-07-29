@@ -20,7 +20,7 @@ class Schedules extends Component {
     const currentYear = new Date(Date.now()).getFullYear();
     const prevYear = currentYear - 1;
 
-    if (this.props.team[0] && this.props.team[0].sub_sport.alt_season_display) {
+    if (this.props.team[0] && this.props.team[0].conference.sub_sport.alt_season_display) {
       if (currentMonth > 5) {
         filteredSchedule = this.props.schedule.filter( game => {
           return game.season.year === currentYear.toString();
@@ -32,7 +32,7 @@ class Schedules extends Component {
         })
         seasonYear = this.props.seasons.length > 0 && this.props.seasons.filter(season => season.year === prevYear.toString())[0].alt_display
       }
-    } else if (this.props.team[0] && !this.props.team[0].sub_sport.alt_season_display) {
+    } else if (this.props.team[0] && !this.props.team[0].conference.sub_sport.alt_season_display) {
       filteredSchedule = this.props.schedule.filter( game => {
         return game.season.year === currentYear.toString();
       })
