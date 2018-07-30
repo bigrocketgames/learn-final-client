@@ -3,7 +3,9 @@ import { Table } from 'react-bootstrap';
 
 import SubSportTeamsList from '../containers/SubSportsTeamsList';
 
-const SubSportsCard = ({conference}) => {
+const SubSportsCard = ({conference, alt_season_display}) => {
+  const conferenceHeadline = alt_season_display ? <h2 className="text-center">{`${conference.name}`} TEAMS</h2> : null
+  
   if (conference.teams !== undefined) {
     if (conference.teams.length > 0) {
       
@@ -19,7 +21,7 @@ const SubSportsCard = ({conference}) => {
 
       return (
         <div>
-          <h2 className="text-center">{conference.name} TEAMS</h2>
+          {conferenceHeadline}
           <Table striped bordered responsive>
             <thead>
               <tr>
@@ -32,23 +34,21 @@ const SubSportsCard = ({conference}) => {
               {teams.map(team => <SubSportTeamsList key={team.id} team={team} />)}
             </tbody>
           </Table>
-          <hr />
         </div>
       )
     } else {
       return (
         <div>
-          <h2 className="text-center">{conference.name} TEAMS</h2>
+          {conferenceHeadline}
           <h5>Unfortunately, there are no teams to show for this league at this time.</h5>
           <h5>We are working to update this as soon as possible.</h5>
-          <hr />
         </div>
       )
     }
   } else {
     return (
       <div>
-        <h2 className="text-center">{conference.name} TEAMS</h2>
+        {conferenceHeadline}
         <h5>Unfortunately, there are no teams to show for this league at this time.</h5>
       </div>
     )
