@@ -32,10 +32,10 @@ class SubSports extends Component {
 
     return(
       <div className="container">
-        <h2 className="text-center">{sub_sports.name} TEAMS</h2>
+        <h2 className="text-center">{sub_sports.name}</h2>
         <hr />
         {userReminder}
-        {sub_sports.conferences && sub_sports.conferences.map(conference => <SubSportsCard key={conference.id} alt_season_display={sub_sports.alt_season_display} conference={conference} />)}
+        {sub_sports.conferences && sub_sports.conferences.map(conference => <SubSportsCard key={conference.id} conference_split={sub_sports.conference_split} conference={conference} />)}
       </div>
     )
   }

@@ -3,8 +3,8 @@ import { Table } from 'react-bootstrap';
 
 import SubSportTeamsList from '../containers/SubSportsTeamsList';
 
-const SubSportsCard = ({conference, alt_season_display}) => {
-  const conferenceHeadline = alt_season_display ? <h2 className="text-center">{`${conference.name}`} TEAMS</h2> : null
+const SubSportsCard = ({conference, conference_split}) => {
+  const conferenceHeadline = conference_split ? <h2 className="text-center">{`${conference.name}`} TEAMS</h2> : null
   
   if (conference.teams !== undefined) {
     if (conference.teams.length > 0) {
