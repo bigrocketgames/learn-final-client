@@ -7,7 +7,7 @@ const MessageCard = ({message}) => {
     <div className="message">
       <p className="messageContent">{message.content}</p>
       <div className="messageFooter">
-        <span>&nbsp;&nbsp; - {message.user} - { messageTime.toLocaleString()}</span>
+        <span>&nbsp;&nbsp; - {message.username} - { messageTime.toLocaleString()}</span>
       </div>
     </div>
   )
