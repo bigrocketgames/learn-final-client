@@ -8,7 +8,7 @@ class Home extends Component {
 
   render() {
     let pageHeader = null;
-    if (this.props.user.id) {
+    if (this.props.user && this.props.user.id) {
       pageHeader = <div>
           <h3 className="text-center">Your Favorite Teams</h3>
           <p className="text-center">Click a team name to see their schedule</p><hr/>

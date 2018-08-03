@@ -20,7 +20,7 @@ class Header extends Component {
   
     if (!auth.isAuthenticated) {
       rightSideLinks = <ul className="nav navbar-nav navbar-right"><li><NavLink to="/signup">Signup</NavLink></li><li><NavLink to="/login">Login</NavLink></li></ul>
-    } else if (auth.currentUser.admin) {
+    } else if (auth.currentUser && auth.currentUser.admin) {
       rightSideLinks = <ul className="nav navbar-nav navbar-right"><li><NavLink to="/logout">Logout</NavLink></li><li><NavLink to="/admin">Admin</NavLink></li></ul>
     } else {
       rightSideLinks = <ul className="nav navbar-nav navbar-right"><li><NavLink to="/logout">Logout</NavLink></li></ul>
