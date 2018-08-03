@@ -22,7 +22,8 @@ button[type="submit"] {
 }
 
 div.formEmail label {
-  width: 75px;
+  width: 125px;
+  text-align: right;
 }
 
 div.formPassword {
@@ -30,7 +31,16 @@ div.formPassword {
 }
 
 div.formPassword label {
-  width: 75px;
+  width: 125px;
+  text-align: right;
+}
+
+.errorSpan {
+  background-color: black;
+  padding: 3px 5px;
+  color: red;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 select, option {
